@@ -31,7 +31,7 @@ class LoginController extends Controller
             $cookie = \Cookie::make('studentID', $request->studentID, 60);      
             $view = view('Main.MainPage');
 
-            return response($view) -> withCookie($cookie);
+            return response($view)-> withCookie($cookie);
         }catch (\Exception $e){
             return "Error";  
         }

@@ -7,11 +7,11 @@
     <title>Index</title>
 </head>
     <body>
-        <form action="{{route('MainPage')}}" method="POST" class="Semester_Form">
+        <form action="{{route('LoginControll')}}" method="POST" class="Login_Form">
             @csrf
             <input type="text" name="studentID" placeholder="아이디">
             <input type="password" name="studentPassword" placeholder="비밀번호">
-            <button type="submit" class="Semester_Point_Button">
+            <button type="submit" class="Login_Button">
         </form>
     </body>
 </html>
