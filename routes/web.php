@@ -16,4 +16,4 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 //로그인 후 제일 처음 페이지
 Route::get('/Main', function(){
     return view('Main.MainPage');
-});
+}) -> middleware('MainLoginCookie') -> name('MainPage');
