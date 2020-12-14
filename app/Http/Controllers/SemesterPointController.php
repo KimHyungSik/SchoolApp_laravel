@@ -23,7 +23,7 @@ class SemesterPointController extends Controller
             $List = $object->Hakgi;
 
             //출력 부분
-            return $List;
+           return $List;
         }catch (\Exception $e){
             return redirect()->back()->withErrors(['msg', 'The Message']);  //학번 검색 실패 시 기본화면으로 전환
         }

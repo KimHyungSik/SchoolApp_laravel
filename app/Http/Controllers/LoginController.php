@@ -27,11 +27,13 @@ class LoginController extends Controller
                 return redirect()->back()->withErrors(['msg', 'The Message']);  
             }
             
-            $semesterPoint = new SemesterPointController();
-            dd($semesterPoint->SemesterPoint((string)$request->studentID));
+            //로그인 성공시 쿠기 생성
+            $cookie = \Cookie::make('studentID', $request->studentID, 60);      
+            $view = view('Main.MainPage');
 
+            return response($view) -> withCookie($cookie);
         }catch (\Exception $e){
-            return redirect()->back()->withErrors(['msg', 'The Message']);  
+            return "Error";  
         }
     }
 }
