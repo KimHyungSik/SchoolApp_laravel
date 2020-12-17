@@ -1,5 +1,5 @@
 @extends('layouts.BottomNavigation')
 
 @section('content')
-<h1>Main</h1>
+    <h1>Job</h1>
 @endsection

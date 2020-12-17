@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\Controllers\SemesterPointController;
 
 class LoginController extends Controller
 {
@@ -11,7 +10,7 @@ class LoginController extends Controller
     public function index(Request $request){
         $url_id = $this->url.$request->studentID.'/'.$request->studentPassword;
 
-        try{
+        // try{
             //curl 설정
             $ch = curl_init();                                 //curl 초기화
             curl_setopt($ch, CURLOPT_URL, $url_id);            //URL 지정하기
@@ -32,8 +31,8 @@ class LoginController extends Controller
             $view = view('Main.MainPage');
 
             return response($view)-> withCookie($cookie);
-        }catch (\Exception $e){
-            return "Error";  
-        }
+        // }catch (\Exception $e){
+        //     return "Error";  
+        // }
     }
 }

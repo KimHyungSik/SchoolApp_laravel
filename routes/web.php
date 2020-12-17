@@ -9,8 +9,15 @@ Route::get('/',function () {
 }) -> middleware('LoginCookie');
 
 //학기 점수 확인 class 호출
-//Route::post('/SemesterPoint', [LoginController::class, 'index']) -> middleware('CheckLoginCookie')  -> name('SemesterPoint');
+Route::get('/SemesterPoint', [SemesterPointController::class, 'index']) -> middleware('CheckLoginCookie')  -> name('SemesterPoint');
 
+Route::get('/Calendar', function (){
+    return view('Calendar.Calendar');
+}) -> middleware('CheckLoginCookie') -> name('Calendar');
+
+Route::get('/Job', function(){
+    return view('Job.Job');
+}) -> middleware('CheckLoginCookie') -> name('Job');
 
 Route::post('/LoginCheck', [LoginController::class, 'index']) -> name('LoginControll');
 
