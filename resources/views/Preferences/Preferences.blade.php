@@ -1,5 +1,5 @@
 @extends('layouts.BottomNavigation')
 
 @section('content')
-    <h1>Main</h1>
+    <a href="{{route('LogOut')}}">로그아웃</a>
 @endsection

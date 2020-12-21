@@ -12,5 +12,6 @@
         <a href="{{route('Calendar')}}">일정</a>
         <a href="{{route('SemesterPoint')}}">성적</a>
         <a href="{{route('Job')}}">일자리</a>
+        <a href="{{route('Preferences')}}">더보기</a>
     </body>
 </html>

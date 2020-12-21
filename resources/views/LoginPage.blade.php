@@ -13,5 +13,6 @@
             <input type="password" name="studentPassword" placeholder="비밀번호">
             <button type="submit" class="Login_Button">
         </form>
+        <script type="text/javascript" src="/js/get_clientIP.js"></script> 
     </body>
 </html>
