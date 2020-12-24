@@ -68,6 +68,7 @@
                 type="checkbox"
                 class="form-check-input"
                 id="exampleCheck1"
+                name="auto_Login"
               />
               <label class="form-check-label" for="exampleCheck1"
                 >자동 로그인</label

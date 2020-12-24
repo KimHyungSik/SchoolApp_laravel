@@ -19,6 +19,15 @@ class MainLoginCookie
     {
         //로그인 쿠키 검사
         $studentID = \Cookie::get('studentID');
+        $studentID_save = \Cookie::get('studentID_save');
+        
+        //자동 로그인 쿠키가 있다면 로그인 인증
+        if($studentID_save){
+            \Cookie::queue(\Cookie::make('studentID',  $studentID_save));
+            \Cookie::queue(\Cookie::forget('studentID_save'));
+            return $next($request);
+        }
+
         if($studentID == null){
             return redirect('/');
         }

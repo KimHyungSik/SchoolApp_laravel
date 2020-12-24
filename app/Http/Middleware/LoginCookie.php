@@ -19,6 +19,7 @@ class LoginCookie
     {
         //로그인 쿠키 검사
         $studentID = \Cookie::get('studentID');
+
         if($studentID != null){
             return redirect('Main');
         }

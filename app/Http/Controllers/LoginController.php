@@ -27,8 +27,12 @@ class LoginController extends Controller
             }
             
             //로그인 성공시 쿠기 생성
-            $cookie = \Cookie::make('studentID', $request->studentID, 60);   
+            $cookie = \Cookie::make('studentID', $request->studentID, 60);
+            if($request->auto_Login){
+                \Cookie::queue(\Cookie::make('studentID_save', $request->studentID, 60));
+            }
             $view = view('Main.MainPage');
+
 
             return response($view)-> withCookie($cookie);
         // }catch (\Exception $e){
