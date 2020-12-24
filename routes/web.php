@@ -35,6 +35,6 @@ Route::get('/Preferences', function (){
 
 
 
-Route::post('/LoginCheck', [LoginController::class, 'index']) -> name('LoginControll');
+Route::post('/LoginCheck', [LoginController::class, 'index']) -> middleware('Deviecinfomation') -> name('LoginControll');
 
 Route::get('/LogOut', Logout_::class) -> middleware('CheckLoginCookie') -> name('LogOut');

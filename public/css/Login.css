@@ -1,0 +1,53 @@
+.Login_Logo {
+  max-width: 100%;
+  max-height: 100%;
+  text-align: center;
+  margin-top: 80px;
+}
+main section {
+  margin-top: 20px;
+}
+#primary_color {
+  background-color: #8283a7;
+  border-color: #707070;
+}
+.form-group #exampleInputText {
+  width: 210px;
+  height: 40px;
+  border-radius: 8px;
+}
+.form-group #exampleInputPassword1 {
+  margin-top: 10px;
+  width: 210px;
+  height: 40px;
+  border-radius: 8px;
+}
+#Search_ID {
+  background-color: transparent;
+  border: 0px transparent;
+}
+#Login_Btn {
+  background-color: #8283a7;
+  border-color: #707070;
+  color: #ffffff;
+}
+#Login_Btn {
+  margin-top: 20px;
+  width: 210px;
+  height: 40px;
+  border-radius: 8px;
+}
+.form-check {
+  margin-top: 10px;
+}
+#modal-body {
+  text-align: center;
+}
+.Social_Number {
+  text-align: center;
+}
+.Social_Number > #jumin1,
+#jumin2 {
+  width: 120px;
+  border-radius: 8px;
+}
