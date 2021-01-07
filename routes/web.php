@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SemesterPointController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\Logout_;
+use App\Http\Controllers\SchoolNoticePage;
 
 Route::get('/',function () { 
     return view('LoginPage');
@@ -16,7 +17,6 @@ Route::get('/Main',  function(){
 ) 
 -> middleware('CheckLoginCookie') 
 -> name('MainPage');
-
 
 Route::get('/Calendar', function (){
     return view('Calendar.Calendar');
@@ -34,6 +34,7 @@ Route::get('/Preferences', function (){
 }) -> middleware('CheckLoginCookie') -> name('Preferences');
 
 
+Route::get('/SchoolNotice', [SchoolNoticePage::class, 'index'])-> middleware('CheckLoginCookie') -> name('Notice');
 
 Route::post('/LoginCheck', [LoginController::class, 'index']) -> middleware('Deviecinfomation') -> name('LoginControll');
 
