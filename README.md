@@ -7,3 +7,5 @@
 -   [ ] Cookie
 -   [ ] Semester Score ![10%](https://progress-bar.dev/20)
 -   [ ] Notice
+    - Get Api
+    - Create a bulletin board
