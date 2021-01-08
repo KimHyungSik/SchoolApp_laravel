@@ -1,23 +1,22 @@
 @extends('layouts.BottomNavigation')
 
 @section('content')
-    
+
 <body class="Community_Body">
-        <section>
             <header>
                 <section class="Community_Home">
                     <div class="Community_Logo_Img">
-                        <img src="images/Logo.png" width="90px" height="90px" />
-                        <div class="Title" role="banner">
-                            <h1
-                                style="margin-bottom: 0px"
-                                class="Community_Title"
-                            >
-                                KOREAIT 커뮤니티
-                            </h1>
-                        </div>
+                        <img src="images/Logo.png" width="100px" height="100px" />
                     </div>
                 </section>
+                <div class="Title" role="banner">
+                    <h1
+                        style="margin-bottom: 0px"
+                        class="Community_Title"
+                    >
+                        KOREAIT 커뮤니티
+                    </h1>
+
                 <div>
                     <nav class="Community_Nav_1">
                         <ul style="-webkit-padding-start: 0px">
@@ -35,8 +34,8 @@
                         </ul>
                     </nav>
                 </div>
+            </div>
             </header>
-        </section>
         <section>
             공지사항 내용
             <ul>

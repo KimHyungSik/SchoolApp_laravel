@@ -10,7 +10,7 @@ class LoginController extends Controller
 {
 	public function index(Request $request)
 	{
-		$url_id = env("LOGIN_URL", false) . $request->studentID . '/' . $request->studentPassword;
+		$url_id = env("URL_LOGIN", false) . $request->studentID . '/' . $request->studentPassword;
 
 		// try{
 		//curl 설정
