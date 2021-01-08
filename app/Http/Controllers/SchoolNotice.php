@@ -5,7 +5,6 @@ use Illuminate\Http\Request;
 
 class SchoolNotice extends Controller
 {
-
     private $url_id = "http://haksa.koreait.kr/article/news/list/";
     //num, size 받아서 공지사항 json 반환
     public function getNotice($num, $size){

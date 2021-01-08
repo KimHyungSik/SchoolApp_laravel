@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SemesterPointController;
+use App\Http\Controllers\MainPageContorller;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\Logout_;
 use App\Http\Controllers\SchoolNoticePage;
@@ -11,12 +12,7 @@ Route::get('/',function () {
 }) -> middleware('LoginCookie');
 
 //로그인 후 제일 처음 페이지
-Route::get('/Main',  function(){
-    return view('Main.MainPage');
-}
-) 
--> middleware('CheckLoginCookie') 
--> name('MainPage');
+Route::get('/Main',  [MainPageContorller::class, 'index']) -> middleware('CheckLoginCookie') -> name('MainPage');
 
 Route::get('/Calendar', function (){
     return view('Calendar.Calendar');

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\SchoolNotice;
 
 class LoginController extends Controller
 {
@@ -35,7 +36,11 @@ class LoginController extends Controller
             }
 
             \Cookie::queue(\Cookie::forget('studentID_delete'));
-            $view = view('Main.MainPage');
+
+            $notice = new SchoolNotice();
+            $notice_datas = json_decode($notice->getNotice(1, 50)); // 메인 공지사항 제작
+
+            $view = view('Main.MainPage', compact('notice_datas'));
 
 
             return response($view)-> withCookie($cookie);
