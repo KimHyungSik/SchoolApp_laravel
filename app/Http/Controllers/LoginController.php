@@ -4,48 +4,48 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\SchoolNotice;
+use Illuminate\Support\Facades\Cookie;
 
 class LoginController extends Controller
 {
-    private $url = "http://haksa.koreait.kr/article/login/";
-    public function index(Request $request){
-        $url_id = $this->url.$request->studentID.'/'.$request->studentPassword;
+	public function index(Request $request)
+	{
+		$url_id = env("LOGIN_URL", false) . $request->studentID . '/' . $request->studentPassword;
 
-        // try{
-            //curl 설정
-            $ch = curl_init();                                 //curl 초기화
-            curl_setopt($ch, CURLOPT_URL, $url_id);            //URL 지정하기
-            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);    //요청 결과를 문자열로 반환 
-            
-            //curl response
-            $json_response = curl_exec($ch);
-            cURL_close($ch);
+		// try{
+		//curl 설정
+		$ch = curl_init();                                 //curl 초기화
+		curl_setopt($ch, CURLOPT_URL, $url_id);            //URL 지정하기
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);    //요청 결과를 문자열로 반환
 
-            $decode_response = json_decode($json_response);
+		//curl response
+		$json_response = curl_exec($ch);
+		cURL_close($ch);
 
-            if((string)$decode_response[0]->RESULT != "100"){
-                return redirect()->back()->withErrors(['msg', 'The Message']);  
-            }
-            
-            //로그인 성공시 쿠기 생성
-            $cookie = \Cookie::make('studentID', $request->studentID, 60);
+		$decode_response = json_decode($json_response);
 
-            //자동로그인 확인
-            if($request->auto_Login){
-                \Cookie::queue(\Cookie::make('studentID_save', $request->studentID, 60));
-            }
+		if ((string)$decode_response[0]->RESULT != "100") {
+			return redirect()->back()->withErrors(['msg', 'The Message']);
+		}
 
-            \Cookie::queue(\Cookie::forget('studentID_delete'));
+		//로그인 성공시 쿠기 생성
+		$cookie = Cookie::make('studentID', $request->studentID, 60);
 
-            $notice = new SchoolNotice();
-            $notice_datas = json_decode($notice->getNotice(1, 50)); // 메인 공지사항 제작
+		//자동로그인 확인
+		if ($request->auto_Login) {
+			Cookie::queue(Cookie::make('studentID_save', $request->studentID, 60));
+		}
 
-            $view = view('Main.MainPage', compact('notice_datas'));
+		Cookie::queue(Cookie::forget('studentID_delete'));
 
+		$notice = new SchoolNotice();
+		$notice_datas = json_decode($notice->getNotice(1, 50)); // 메인 공지사항 제작
 
-            return response($view)-> withCookie($cookie);
-        // }catch (\Exception $e){
-        //     return "Error";  
-        // }
-    }
+		$view = view('Main.MainPage', compact('notice_datas'));
+
+		return response($view)->withCookie($cookie);
+		// }catch (\Exception $e){
+		//     return "Error";
+		// }
+	}
 }

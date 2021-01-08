@@ -7,7 +7,8 @@ use App\Http\Controllers\GetSemesterPoint;
 
 class SemesterPointController extends Controller
 {
-    public function index(Request $request){
+    public function index(Request $request)
+    {
         //학기 점수 반환 클래스생성
         $get_semester_point = new GetSemesterPoint();
 
@@ -15,7 +16,7 @@ class SemesterPointController extends Controller
         $studentID = $request->cookie('studentID');
 
         //$view = view('Semester.SemesterPoint');
-        
+
         return dd($get_semester_point->GetSemesterPoint($studentID));
     }
 }
