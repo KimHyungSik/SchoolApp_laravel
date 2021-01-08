@@ -6,7 +6,7 @@
             name="viewport"
             content="width=device-width, initial-scale=1.0, minimum-scale=1.0,maximum-scale=1.0"
         />
-        <link rel="stylesheet" type="text/css" href="CSS/Login.css" />
+        <link rel="stylesheet" type="text/css" href="css/Login.css" />
         <link
             href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
             rel="stylesheet"
@@ -19,7 +19,6 @@
         />
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-        <script src="./jquery-3.4.1.min.js"></script>
         <script
             src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
@@ -123,7 +122,7 @@
                         <span class="modal-body" id="modal-body">
                         </span>
                             <form class="Reset_Student_ID">
-                                학번 : 
+                                학번 :
                                 <input
                                     type="tel"
                                     id="Reset_Student_ID"
