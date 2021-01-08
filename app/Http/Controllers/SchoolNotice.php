@@ -18,7 +18,7 @@ class SchoolNotice extends Controller
 			);
 			$ch = curl_init();
 			$post_field_string = http_build_query($data, '', '&');
-			curl_setopt($ch, CURLOPT_URL, env("NOTICE_URL", false));                   //URL 지정하기
+			curl_setopt($ch, CURLOPT_URL, env("URL_NEWS_LIST", false));                   //URL 지정하기
 			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);                 //요청 결과를 문자열로 반환
 			curl_setopt($ch, CURLOPT_POSTFIELDS, $post_field_string);
 			curl_setopt($ch, CURLOPT_POST, true);
