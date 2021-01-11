@@ -1,0 +1,22 @@
+#board {
+	display: flex;
+	float: left;
+	flex-direction: column;
+	justify-content: center;
+}
+
+#board > div {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+#board-title,
+#board-body {
+	width: 32em;
+	margin: 1px;
+	border-width: 1px;
+	padding: 1px;
+	font-family: Arial, Helvetica, sans-serif;
+	resize: none;
+}
