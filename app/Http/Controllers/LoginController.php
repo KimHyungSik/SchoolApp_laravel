@@ -44,6 +44,7 @@ class LoginController extends Controller
 		$view = view('Main.MainPage', compact('notice_datas'));
 		return redirect()->route('MainPage');
 	}
+
 	public function autoLogin(Request $request)
 	{
 		$studentID_save = Cookie::get('studentID_save');
