@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\SchoolNotice;
 use Illuminate\Support\Facades\Cookie;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 
 class LoginController extends Controller
 {
@@ -42,6 +44,17 @@ class LoginController extends Controller
 		$notice_datas = json_decode($notice->getNotice(1, 50)); // 메인 공지사항 제작
 
 		$view = view('Main.MainPage', compact('notice_datas'));
+
+		$studentID = Cookie::get('studentID');
+		//Devicec MODEL, OS_VERSION, clientIP
+		$Model = Cookie::get('DeviceModel');
+		$Version = Cookie::get('DeviceVersion');
+		$ip = $request->ip();
+		try {
+			DB::statement('CALL koreaitedu.log_login(?,?,?,?);', array($request->studentID, $ip, $Version, $Model));
+		} catch (\Throwable $th) {
+			Log::error($th);
+		}
 
 		return response($view)->withCookie($cookie);
 		// }catch (\Exception $e){
