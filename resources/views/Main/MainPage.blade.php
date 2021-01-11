@@ -40,7 +40,7 @@
             공지사항 내용
             <ul>
                 @foreach($notice_datas as $notice_data)
-                    <li>{{$notice_data->title}}</li>
+                    <li><a href="notice/{{$notice_data->take_idx}}">{{$notice_data->title}}</a></li>
                 @endforeach
             </ul>
         </section>

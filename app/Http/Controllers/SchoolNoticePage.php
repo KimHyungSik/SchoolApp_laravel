@@ -3,14 +3,19 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\Controllers\SchoolNotice;
 
 class SchoolNoticePage extends Controller
 {
 	public function index(Request $request)
 	{
-		$notice = new SchoolNotice();
-		$notice_datas = json_decode($notice->getNotice(1, 20)); // 메인 공지사항 제작
-		return view('Notice.SchoolNotice', compact('notice_datas'));
+		//상세 공지사항 주소
+		$url_id = env("URL_NEWS_LIST", false) . $request['id'];
+
+		$ch = curl_init();                                 //curl 초기화
+		curl_setopt($ch, CURLOPT_URL, $url_id);            //URL 지정하기
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);    //요청 결과를 문자열로 반환
+
+
+		return $request['id'];
 	}
 }

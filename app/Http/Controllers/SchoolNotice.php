@@ -13,8 +13,6 @@ class SchoolNotice extends Controller
 			$data = array(
 				'page_num' => $num,
 				'page_size' => $size,
-				'search_key' => 'title',
-				'search_value' => '공지'
 			);
 			$ch = curl_init();
 			$post_field_string = http_build_query($data, '', '&');

@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cookie;
 
-class DeviecInfo
+class DeviceInfo
 {
 
 	public function handle(Request $request, Closure $next)
@@ -14,12 +14,12 @@ class DeviecInfo
 		$response = $next($request);
 
 		$studentID = Cookie::get('studentID');
-		//Devicec MODEL, VERSION, clientIP
-		$deviec_info = Cookie::get('DeviecInfo');
 
-		if ($deviec_info == null) {
-			return $response;
-		}
+		//Devicec MODEL, OS_VERSION, clientIP
+		$Model = Cookie::get('DeviceModel');
+		$Version = Cookie::get('DeviceModel');
+		$Client = Cookie::get('DeviceIP');
+
 
 
 
