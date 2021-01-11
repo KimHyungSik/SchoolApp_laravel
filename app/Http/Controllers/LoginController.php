@@ -29,11 +29,11 @@ class LoginController extends Controller
 		}
 
 		//로그인 성공시 쿠기 생성
-		$cookie = Cookie::make('studentID', $request->studentID, 60);
+		Cookie::queue(Cookie::make('studentID', $request->studentID, 60));
 
 		//자동로그인 확인
 		if ($request->auto_Login) {
-			Cookie::queue(Cookie::make('studentID_save', $request->studentID, 60));
+			Cookie::queue(Cookie::make('studentID_saveServer', $request->studentID, 60));
 		}
 
 		Cookie::queue(Cookie::forget('studentID_delete'));
@@ -42,10 +42,18 @@ class LoginController extends Controller
 		$notice_datas = json_decode($notice->getNotice(1, 50)); // 메인 공지사항 제작
 
 		$view = view('Main.MainPage', compact('notice_datas'));
+		return redirect()->route('MainPage');
+	}
+	public function autoLogin(Request $request)
+	{
+		$studentID_save = Cookie::get('studentID_save');
 
-		return response($view)->withCookie($cookie);
-		// }catch (\Exception $e){
-		//     return "Error";
-		// }
+		//자동 로그인 쿠키가 있다면 로그인 인증
+		if ($studentID_save) {
+			Cookie::queue(Cookie::make('studentID',  $studentID_save));
+			Cookie::queue(Cookie::forget('studentID_save'));
+			return redirect()->route('MainPage');
+		}
+		return redirect()->route('default');
 	}
 }
