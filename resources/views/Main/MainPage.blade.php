@@ -11,7 +11,7 @@
 
 <body class="Community_Body">
             <header>
-                <link rel="stylesheet" type="text/css" href="css/Community.css" />
+                <link rel="stylesheet" type="text/css" href="css/BottomNavigation.css" />
                 <section class="Community_Home">
                     <div class="Community_Logo_Img">
                         <img src="images/Logo.png" width="100px" height="100px" />
