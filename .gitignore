@@ -12,3 +12,6 @@ npm-debug.log
 yarn-error.log
 _*
 *.log
+app/Providers/RouteServiceProvider.php
+app.php
+view.php
