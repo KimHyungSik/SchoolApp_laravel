@@ -2,8 +2,16 @@
 
 @section('content')
 
+<link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
+        crossorigin="anonymous"
+    />
+
 <body class="Community_Body">
             <header>
+                <link rel="stylesheet" type="text/css" href="css/Community.css" />
                 <section class="Community_Home">
                     <div class="Community_Logo_Img">
                         <img src="images/Logo.png" width="100px" height="100px" />
@@ -37,10 +45,16 @@
             </div>
             </header>
         <section>
-            공지사항 내용
-            <ul>
+            <ul class="list-group">
                 @foreach($notice_datas as $notice_data)
-                    <li><a href="notice/{{$notice_data->take_idx}}">{{$notice_data->title}}</a></li>
+                <div>
+                    <li>
+                    <a href="notice/{{$notice_data->take_idx}}"><h5>{{$notice_data->title}}</h5>
+                        <small>{{$notice_data->writeday}}{{$notice_data->readnum}}</small>
+                    </a>
+
+                    </li>
+                </div>
                 @endforeach
             </ul>
         </section>

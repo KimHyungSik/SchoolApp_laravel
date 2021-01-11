@@ -1,0 +1,25 @@
+#footer-column {
+    text-align: center;
+    float: left;
+    width: 20%;
+}
+.Footer_Nav ul {
+    margin-bottom: 0px;
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+    padding: 16px 0;
+    padding-inline-start: 0px;
+    background-color: #f3f3f3;
+    list-style: none;
+    border-top: 1px solid #b4b4b4;
+}
+.Footer_Nav ul li a {
+    color: #cfcfcf;
+    position: relative;
+    size: 30px;
+}
+.Footer_Nav li.on a {
+    color: #50528e;
+    position: relative;
+}
