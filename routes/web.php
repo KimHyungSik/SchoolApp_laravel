@@ -1,12 +1,14 @@
 <?php
 
 use App\Http\Controllers\Calendar\MainCalendar;
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SemesterPointController;
 use App\Http\Controllers\MainPageContorller;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\Logout_;
 use App\Http\Controllers\SchoolNoticePage;
+use Illuminate\Support\Facades\Cookie;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
 	return view('LoginPage');
@@ -23,6 +25,7 @@ Route::get('/SemesterPoint', [SemesterPointController::class, 'index'])->middlew
 
 //일자리
 Route::get('/Job', function () {
+	Log::info(Cookie::get());
 	return view('Job.Job');
 })->middleware('CheckLoginCookie')->name('Job');
 

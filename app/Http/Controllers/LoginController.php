@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\SchoolNotice;
 use Illuminate\Support\Facades\Cookie;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 
 class LoginController extends Controller
 {
@@ -49,7 +51,6 @@ class LoginController extends Controller
 	{
 		$studentID_save = Cookie::get('studentID_save');
 
-		//자동 로그인 쿠키가 있다면 로그인 인증
 		if ($studentID_save) {
 			Cookie::queue(Cookie::make('studentID',  $studentID_save));
 			Cookie::queue(Cookie::forget('studentID_save'));
