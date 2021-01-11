@@ -1,0 +1,29 @@
+th {
+	text-align: left;
+}
+
+.board-id {
+	width: 5em;
+}
+
+.board-title {
+	width: 20em;
+}
+
+.board-time {
+	width: 10em;
+}
+
+#board-body {
+	width: calc(100% - 21em);
+	margin: 1em 0;
+	border: 1px solid lightgray;
+	padding: 0.5em;
+}
+
+#board-buttons {
+	width: calc(100% - 20em);
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}

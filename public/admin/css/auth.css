@@ -1,0 +1,16 @@
+#auth {
+	display: flex;
+	float: left;
+	flex-direction: column;
+	justify-content: center;
+}
+
+#auth-id {
+	width: 20em;
+}
+
+#auth > div {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}

@@ -7,8 +7,11 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\Logout_;
 use App\Http\Controllers\SchoolNoticePage;
 
+<<<<<<< HEAD
 
 //기본
+=======
+>>>>>>> bd9745532508c533f25f0cd143363a4b99a598c5
 Route::get('/', function () {
 	return view('LoginPage');
 })->middleware('LoginCookie');
@@ -16,7 +19,10 @@ Route::get('/', function () {
 //로그인 후 제일 처음 페이지
 Route::get('/Main',  [MainPageContorller::class, 'index'])->middleware('CheckLoginCookie')->name('MainPage');
 
+<<<<<<< HEAD
 //일정
+=======
+>>>>>>> bd9745532508c533f25f0cd143363a4b99a598c5
 Route::get('/Calendar', function () {
 	return view('Calendar.Calendar');
 })->middleware('CheckLoginCookie')->name('Calendar');
@@ -24,7 +30,10 @@ Route::get('/Calendar', function () {
 //학기 점수 확인 class 호출
 Route::get('/SemesterPoint', [SemesterPointController::class, 'index'])->middleware('CheckLoginCookie')->name('SemesterPoint');
 
+<<<<<<< HEAD
 //일자리
+=======
+>>>>>>> bd9745532508c533f25f0cd143363a4b99a598c5
 Route::get('/Job', function () {
 	return view('Job.Job');
 })->middleware('CheckLoginCookie')->name('Job');
@@ -33,7 +42,9 @@ Route::get('/Preferences', function () {
 	return view('Preferences.Preferences');
 })->middleware('CheckLoginCookie')->name('Preferences');
 
+Route::get('/SchoolNotice', [SchoolNoticePage::class, 'index'])->middleware('CheckLoginCookie')->name('Notice');
 
+<<<<<<< HEAD
 //상세 공지사항
 Route::get('/notice/{id}', [SchoolNoticePage::class, 'index'])->middleware('CheckLoginCookie')->name('Notice');
 
@@ -41,4 +52,8 @@ Route::get('/notice/{id}', [SchoolNoticePage::class, 'index'])->middleware('Chec
 Route::post('/LoginCheck', [LoginController::class, 'index'])->middleware('DeviceInfomation')->name('LoginControll');
 
 //로그아웃
+=======
+Route::post('/LoginCheck', [LoginController::class, 'index'])->middleware('Deviecinfomation')->name('LoginControll');
+
+>>>>>>> bd9745532508c533f25f0cd143363a4b99a598c5
 Route::get('/LogOut', Logout_::class)->middleware('CheckLoginCookie')->name('LogOut');

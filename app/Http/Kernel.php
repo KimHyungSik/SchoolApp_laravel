@@ -28,6 +28,7 @@ class Kernel extends HttpKernel
 	 * @var array
 	 */
 	protected $middlewareGroups = [
+<<<<<<< HEAD
 		'web' => [
 			\App\Http\Middleware\EncryptCookies::class,
 			\Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
@@ -44,6 +45,42 @@ class Kernel extends HttpKernel
 		],
 	];
 
+=======
+
+		'_web' => [
+			\App\Http\Middleware\EncryptCookies::class,
+			\Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
+			\Illuminate\Session\Middleware\StartSession::class,
+			// \Illuminate\Session\Middleware\AuthenticateSession::class,
+			\Illuminate\View\Middleware\ShareErrorsFromSession::class,
+			\App\Http\Middleware\VerifyCsrfToken::class,
+			\Illuminate\Routing\Middleware\SubstituteBindings::class,
+			\App\Http\Middleware\_Cookie::class,
+			\App\Http\Middleware\_Auth::class,
+		],
+
+		'_api' => [
+			'throttle:api',
+			\Illuminate\Routing\Middleware\SubstituteBindings::class,
+		],
+
+		'web' => [
+			\App\Http\Middleware\EncryptCookies::class,
+			\Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
+			\Illuminate\Session\Middleware\StartSession::class,
+			// \Illuminate\Session\Middleware\AuthenticateSession::class,
+			\Illuminate\View\Middleware\ShareErrorsFromSession::class,
+			\App\Http\Middleware\VerifyCsrfToken::class,
+			\Illuminate\Routing\Middleware\SubstituteBindings::class,
+		],
+
+		'api' => [
+			'throttle:api',
+			\Illuminate\Routing\Middleware\SubstituteBindings::class,
+		],
+	];
+
+>>>>>>> bd9745532508c533f25f0cd143363a4b99a598c5
 	/**
 	 * The application's route middleware.
 	 *
@@ -63,6 +100,10 @@ class Kernel extends HttpKernel
 		'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
 		'LoginCookie' => \App\Http\Middleware\LoginCookie::class, //로그인 쿠기를 가지고 있으면 메인 페이지로 이동
 		'CheckLoginCookie' => \App\Http\Middleware\MainLoginCookie::class, //로그인 쿠기 없는 경우 로그인 페이지로 이동
+<<<<<<< HEAD
 		'DeviceInfomation' => \App\Http\Middleware\DeviecInfo::class
+=======
+		'Deviecinfomation' => \App\Http\Middleware\DeviecInfo::class,
+>>>>>>> bd9745532508c533f25f0cd143363a4b99a598c5
 	];
 }
