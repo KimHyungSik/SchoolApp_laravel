@@ -35,7 +35,9 @@
 		<tr>
 			<td>{{$time}}</td>
 			@for($i = 0; $i < 5; $i++)
-				<td>{{$contents_arr[$i][$index]}}</td>
+				@if($temp_row_array[$i][$index] > 0)
+					<td rowspan="{{$temp_row_array[$i][$index]}}">{{$contents_arr[$i][$index]}}</td>
+				@endif
 			@endfor
 		</tr>
 	    @endforeach

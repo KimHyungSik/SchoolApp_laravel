@@ -8,6 +8,13 @@ use Illuminate\Support\Facades\Cookie;
 
 class MainCalendar extends Controller
 {
+	private $row_array = array(
+		array(),
+		array(),
+		array(),
+		array(),
+		array()
+	);
 	public function index(Request $request)
 	{
 		$url_id = env("URL_SCHEDULE") . Cookie::get("studentID");
@@ -22,9 +29,10 @@ class MainCalendar extends Controller
 
 		$time_arr = $this->time_set();
 		$contents_arr = $this->schedule_set($json_);
+		$temp_row_array = $this->row_array;
 
 		//return dd($contents_arr);
-		return view('Calendar.Calendar', compact('time_arr', 'contents_arr'));
+		return view('Calendar.Calendar', compact('time_arr', 'contents_arr', 'temp_row_array'));
 	}
 
 	function time_set()
@@ -48,10 +56,23 @@ class MainCalendar extends Controller
 			array(),
 			array()
 		);
+
 		$time_count = 0;
 		foreach ($jsons as $json) {
 			foreach ($week as $index => $day) {
 				$arr[$index][$time_count] = $json->$day;
+				$temp_time_count = $time_count;
+				$this->row_array[$index][$time_count] = 1;
+				if ($time_count > 0) {
+					while ($arr[$index][$temp_time_count] == $arr[$index][$temp_time_count - 1] && $arr[$index][$temp_time_count] != "") {
+						$this->row_array[$index][$temp_time_count] = 0;
+						$temp_time_count--;
+						$this->row_array[$index][$temp_time_count]++;
+						if ($temp_time_count == 0) {
+							break;
+						}
+					}
+				}
 			}
 			$time_count++;
 		}
