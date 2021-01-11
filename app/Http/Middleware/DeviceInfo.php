@@ -17,12 +17,8 @@ class DeviceInfo
 
 		//Devicec MODEL, OS_VERSION, clientIP
 		$Model = Cookie::get('DeviceModel');
-		$Version = Cookie::get('DeviceModel');
-		$Client = Cookie::get('DeviceIP');
-
-
-
-
+		$Version = Cookie::get('DeviceVersion');
+		//$Client = Cookie::get('DeviceIP');
 		return $response;
 	}
 }
