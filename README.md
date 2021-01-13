@@ -4,8 +4,10 @@
 
 ## Working
 -   [x] Login
--   [ ] Cookie
+	-  [x] AutoLogin
+	-  [x] Login Log(Android)
 -   [ ] Semester Score ![10%](https://progress-bar.dev/20)
 -   [ ] Notice
     - Get Api
     - Create a bulletin board
+-   [ ] Calendar ![60%](https://progress-bar.dev/60)
