@@ -9,7 +9,7 @@ class SchoolNoticePage extends Controller
 	public function index(Request $request)
 	{
 		//상세 공지사항 주소
-		$url_id = env("URL_NEWS_LIST", false) . $request['id'];
+		$url_id = env("URL_NEWS_VIEW", false) . $request['id'];
 
 		$ch = curl_init();                                 //curl 초기화
 		curl_setopt($ch, CURLOPT_URL, $url_id);            //URL 지정하기

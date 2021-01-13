@@ -17,7 +17,8 @@ class MainCalendar extends Controller
 	);
 	public function index(Request $request)
 	{
-		$url_id = env("URL_SCHEDULE") . Cookie::get("studentID");
+		$id = $request->cookie('studentID');
+		$url_id = env("URL_SCHEDULE") . $id;
 		$ch = curl_init();                                 //curl 초기화
 		curl_setopt($ch, CURLOPT_URL, $url_id);            //URL 지정하기
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);    //요청 결과를 문자열로 반환
@@ -25,6 +26,7 @@ class MainCalendar extends Controller
 		//curl response
 		$json_response = curl_exec($ch);
 		cURL_close($ch);
+
 		$json_ = json_decode($json_response);
 
 		$time_arr = $this->time_set();
@@ -46,6 +48,7 @@ class MainCalendar extends Controller
 		}
 		return $time_arr;
 	}
+
 	function schedule_set($jsons)
 	{
 		$week = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'];
@@ -61,17 +64,23 @@ class MainCalendar extends Controller
 		foreach ($jsons as $json) {
 			foreach ($week as $index => $day) {
 				$arr[$index][$time_count] = $json->$day;
-				$temp_time_count = $time_count;
 				$this->row_array[$index][$time_count] = 1;
-				if ($time_count > 0) {
-					while ($arr[$index][$temp_time_count] == $arr[$index][$temp_time_count - 1] && $arr[$index][$temp_time_count] != "") {
-						$this->row_array[$index][$temp_time_count] = 0;
-						$temp_time_count--;
-						$this->row_array[$index][$temp_time_count]++;
-						if ($temp_time_count == 0) {
-							break;
-						}
-					}
+			}
+			$time_count++;
+		}
+
+		$time_count = 0;
+		foreach ($jsons as $json) {
+			if ($time_count > 18) {
+				break;
+			}
+			foreach ($week as $index => $day) {
+				$counter = 1;
+				while ($arr[$index][$time_count] == $arr[$index][$time_count + $counter] && $arr[$index][$time_count] != "") {
+					$this->row_array[$index][$time_count]++;
+					$this->row_array[$index][$time_count + $counter] = 0;
+					$arr[$index][$time_count + $counter] = "";
+					$counter++;
 				}
 			}
 			$time_count++;
