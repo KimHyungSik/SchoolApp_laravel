@@ -1,17 +1,8 @@
 @extends('layouts.BottomNavigation')
 
 @section('content')
-
-<link
-        href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
-        rel="stylesheet"
-        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
-        crossorigin="anonymous"
-    />
-
 <body class="Community_Body">
             <header>
-                <link rel="stylesheet" type="text/css" href="css/BottomNavigation.css" />
                 <section class="Community_Home">
                     <div class="Community_Logo_Img">
                         <img src="images/Logo.png" width="100px" height="100px" />
