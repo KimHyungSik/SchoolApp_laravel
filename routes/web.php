@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\board\WritingPage;
 use App\Http\Controllers\Calendar\MainCalendar;
 use App\Http\Controllers\SemesterPointController;
 use App\Http\Controllers\MainPageContorller;
@@ -35,6 +36,8 @@ Route::get('/Preferences', function () {
 
 //상세 공지사항
 Route::get('/notice/{id}', [SchoolNoticePage::class, 'index'])->middleware('CheckLoginCookie')->name('Notice');
+
+Route::get('/Board/Writing', [WritingPage::class, 'index'])->middleware('CheckLoginCookie')->name('Writing');
 
 //로그인
 Route::post('/LoginCheck', [LoginController::class, 'index'])->middleware('Deviceinfomation')->name('LoginControll');
