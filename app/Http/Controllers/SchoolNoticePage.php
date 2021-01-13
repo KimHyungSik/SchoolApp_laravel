@@ -18,6 +18,8 @@ class SchoolNoticePage extends Controller
 		$response = curl_exec($ch);
 		curl_close($ch);
 
-		return $response;
+		$data = json_decode($response, true);
+		return $data[0]['title'];
+		return view('Notice.SchoolNotice', compact('data'));
 	}
 }
