@@ -40,8 +40,8 @@
                 @foreach($notice_datas as $notice_data)
                 <div>
                     <li>
-                    <a href="notice/{{$notice_data->take_idx}}"><h5>{{$notice_data->title}}</h5>
-                        <small>{{$notice_data->writeday}}{{$notice_data->readnum}}</small>
+                    <a href="notice/{{$notice_data['take_idx']}}"><h5>{{$notice_data['title']}}</h5>
+                        <small>{{$notice_data['writeday']}}{{$notice_data['readnum']}}</small>
                     </a>
 
                     </li>

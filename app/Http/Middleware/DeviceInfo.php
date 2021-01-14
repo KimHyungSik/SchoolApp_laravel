@@ -15,16 +15,6 @@ class DeviceInfo
 	{
 		$response = $next($request);
 
-		// $studentID = Cookie::get('studentID');
-		// //Devicec MODEL, OS_VERSION, clientIP
-		// $Model = Cookie::get('DeviceModel');
-		// $Version = Cookie::get('DeviceVersion');
-		// $ip = $request->ip();
-		// try {
-		// 	DB::statement('CALL koreaitedu.log_login(?,?,?,?);', array($studentID, $ip, $Version, $Model));
-		// } catch (\Throwable $th) {
-		// 	Log::error($th);
-		// }
 		return $response;
 	}
 }

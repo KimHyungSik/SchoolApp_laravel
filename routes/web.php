@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\board\BoardList;
 use App\Http\Controllers\board\WritingPage;
+use App\Http\Controllers\board\DetailBoardPage;
 use App\Http\Controllers\Calendar\MainCalendar;
 use App\Http\Controllers\SemesterPointController;
 use App\Http\Controllers\MainPageContorller;
@@ -35,13 +37,17 @@ Route::get('/Preferences', function () {
 })->middleware('CheckLoginCookie')->name('Preferences');
 
 //상세 공지사항
-Route::get('/notice/{id}', [SchoolNoticePage::class, 'index'])->middleware('CheckLoginCookie')->name('Notice');
+Route::get('/Notice/{id}', [SchoolNoticePage::class, 'index'])->middleware('CheckLoginCookie')->name('Notice');
 
+//게시판 관련
 Route::get('/Board/Writing', [WritingPage::class, 'index'])->middleware('CheckLoginCookie')->name('Writing');
+Route::post('/Board/Writing', [WritingPage::class, 'post_board'])->middleware('CheckLoginCookie')->name('PostBoard');
+Route::get('/Board/detaildetail/{id}', [DetailBoardPage::class, 'index'])->middleware('CheckLoginCookie');
+Route::get('/Board/list/{page}/{group}', [BoardList::class, 'index'])->middleware('CheckLoginCookie')->name('BoardList');
 
 //로그인
-Route::post('/LoginCheck', [LoginController::class, 'index'])->middleware('Deviceinfomation')->name('LoginControll');
-Route::get('/LoginCheck', [LoginController::class, 'autoLogin'])->middleware('Deviceinfomation')->name('LoginControll');
+Route::post('/LoginCheck', [LoginController::class, 'index'])->name('LoginControll');
+Route::get('/LoginCheck', [LoginController::class, 'autoLogin'])->name('_LoginControll');
 
 //로그아웃
 Route::get('/LogOut', Logout_::class)->middleware('CheckLoginCookie')->name('LogOut');
