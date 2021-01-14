@@ -1,25 +1,73 @@
-#footer-column {
-    text-align: center;
-    float: left;
-    width: 20%;
+.menu-title {
+	margin: 0;
+	padding-top: 2.3rem;
+	padding-bottom: 1rem;
+	text-align: center;
+	background-color: #8283a7;
+	border-bottom: 1px solid #707070;
+	font-size: 24px;
+	font-weight: bold;
+	color: #ffffff;
 }
-.Footer_Nav ul {
-    margin-bottom: 0px;
-    position: fixed;
-    bottom: 0px;
-    width: 100%;
-    padding: 16px 0;
-    padding-inline-start: 0px;
-    background-color: #f3f3f3;
-    list-style: none;
-    border-top: 1px solid #b4b4b4;
+.Footer-Nav {
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	background-color: #f3f3f3;
+	border-top: 2px solid #b4b4b4;
 }
-.Footer_Nav ul li a {
-    color: #cfcfcf;
-    position: relative;
-    size: 30px;
+.Footer-Nav div {
+	/* box-shadow: 0px -1px 2.5px 0px; */
+	display: flex;
+	width: 100%;
+	margin: 0 auto;
+	position: relative;
 }
-.Footer_Nav li.on a {
-    color: #50528e;
-    position: relative;
+.Footer-Nav div a {
+	flex: 1;
+	display: block;
+	text-align: center;
+	line-height: 60px;
+	height: 56px;
+	float: left;
+	color: #cfcfcf;
+}
+.Footer-Nav div a label {
+	padding-top: 5px;
+	display: block;
+	font-size: 0.5rem;
+}
+.Footer-Nav div a.on {
+	color: #50528e;
+}
+.Footer-Nav div > span {
+	position: absolute;
+	left: 0;
+	bottom: 53px;
+	width: 20%;
+	height: 4px;
+	background-color: #50528e;
+	transition: all 0.3s;
+	opacity: 0;
+}
+.Footer-Nav div a:nth-child(1).on ~ span {
+	opacity: 1;
+	left: 0%;
+}
+.Footer-Nav div a:nth-child(2).on ~ span {
+	opacity: 1;
+	left: 20%;
+}
+.Footer-Nav div a:nth-child(3).on ~ span {
+	opacity: 1;
+	left: 40%;
+}
+.Footer-Nav div a:nth-child(4).on ~ span {
+	opacity: 1;
+	left: 60%;
+}
+.Footer-Nav div a:nth-child(5).on ~ span {
+	opacity: 1;
+	left: 80%;
 }

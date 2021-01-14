@@ -12,20 +12,10 @@ class LoginController extends Controller
 	{
 		$url_id = env("URL_LOGIN", false) . $request->studentID . '/' . $request->studentPassword;
 
-		// try{
-		//curl 설정
-		$ch = curl_init();                                 //curl 초기화
-		curl_setopt($ch, CURLOPT_URL, $url_id);            //URL 지정하기
-		//curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);    //요청 결과를 문자열로 반환
-		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-		//curl response
-		$json_response = curl_exec($ch);
-		cURL_close($ch);
-
-		$decode_response = json_decode($json_response);
-
-		if ((string)$decode_response[0]['RESULT'] != "100") {
-			return redirect()->back()->withErrors(['msg', 'The Message']);
+		$curl = new CurlController();
+		$response = $curl->curlGet($url_id);
+		if ((string)$response[0]['RESULT'] != "100") {
+			return "Login Error";
 		}
 
 		//로그인 성공시 쿠기 생성
@@ -37,11 +27,6 @@ class LoginController extends Controller
 		}
 
 		Cookie::queue(Cookie::forget('studentID_delete'));
-
-		$notice = new SchoolNotice();
-		$notice_datas = json_decode($notice->getNotice(1, 50)); // 메인 공지사항 제작
-
-		$view = view('Main.MainPage', compact('notice_datas'));
 		return redirect()->route('MainPage');
 	}
 

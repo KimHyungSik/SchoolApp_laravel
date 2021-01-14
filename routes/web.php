@@ -42,7 +42,7 @@ Route::get('/Notice/{id}', [SchoolNoticePage::class, 'index'])->middleware('Chec
 //게시판 관련
 Route::get('/Board/Writing', [WritingPage::class, 'index'])->middleware('CheckLoginCookie')->name('Writing');
 Route::post('/Board/Writing', [WritingPage::class, 'post_board'])->middleware('CheckLoginCookie')->name('PostBoard');
-Route::get('/Board/detaildetail/{id}', [DetailBoardPage::class, 'index'])->middleware('CheckLoginCookie');
+Route::get('/Board/detaildetail/{id}', [DetailBoardPage::class, 'index'])->middleware('CheckLoginCookie')->name('BoardDetail');
 Route::get('/Board/list/{page}/{group}', [BoardList::class, 'index'])->middleware('CheckLoginCookie')->name('BoardList');
 
 //로그인

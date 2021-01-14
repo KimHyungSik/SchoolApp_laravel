@@ -31,7 +31,7 @@ class WritingPage extends Controller
 
 			$curl = new CurlController();
 			$response = $curl->curlPost($url_id, $data);
-			return redirect('/Board/detail/' . $response[0]['id']);
+			return redirect()->route('BoardDetail', ['id' => $response[0]['id']]);
 		} catch (\Exception $e) {
 			return 'Error';
 		}

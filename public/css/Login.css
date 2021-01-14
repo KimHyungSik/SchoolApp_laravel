@@ -1,107 +1,127 @@
-.Login_Body {
-    padding-top: 5rem;
+.login-body {
+	padding-top: 5rem;
 }
 /* 학교 로고 */
-.Login_Logo {
-    max-width: 100%;
-    max-height: 100%;
-    text-align: center;
-    margin-top: 5rem;
+.login-logo {
+	max-width: 100%;
+	max-height: 100%;
+	text-align: center;
+	margin-top: 5rem;
 }
 main section {
-    margin-top: 1.25rem;
+	margin-top: 1.25rem;
 }
 /* ID 입력 칸 */
 .form-group #exampleInputText {
-    width: 13.125rem;
-    height: 2.5rem;
-    border-radius: 0.5rem;
+	width: 13.125rem;
+	height: 2.5rem;
+	border-radius: 0.5rem;
 }
 /* PW 입력 칸 */
 .form-group #exampleInputPassword1 {
-    margin-top: 0.625rem;
-    width: 13.125rem;
-    height: 2.5rem;
-    border-radius: 0.5rem;
+	margin-top: 0.625rem;
+	width: 13.125rem;
+	height: 2.5rem;
+	border-radius: 0.5rem;
 }
 /* 로그인 버튼 */
-#Login_Btn {
-    background-color: #8283a7;
-    border-color: #707070;
-    color: #ffffff;
-    margin-top: 1.25rem;
-    margin-bottom: 0.625rem;
-    width: 13.125rem;
-    height: 2.5rem;
-    border-radius: 0.5rem;
+#loginButton {
+	background-color: #8283a7;
+	border-color: #707070;
+	color: #ffffff;
+	margin-top: 1.25rem;
+	margin-bottom: 0.625rem;
+	width: 13.125rem;
+	height: 2.5rem;
+	border-radius: 0.5rem;
 }
 /* 로그인, 초기화, 검색 */
-.Login_Option {
-    display: block;
-    text-align: center;
-    justify-content: center;
+.login-option {
+	display: block;
+	text-align: center;
+	justify-content: center;
 }
 /* 학번 검색 버튼 */
-#Search_ID {
-    font-size: 0.875rem;
-    background-color: transparent;
-    border: 0px transparent;
+#searchID {
+	font-size: 0.875rem;
+	background-color: transparent;
+	border: 0px transparent;
 }
 /* 비밀번호 초기화 버튼 */
-#Reset_PW {
-    vertical-align: auto;
-    font-weight: bold;
-    font-size: 0.875rem;
-    background-color: transparent;
-    border: 0px transparent;
+#resetPassword {
+	vertical-align: auto;
+	font-weight: bold;
+	font-size: 0.875rem;
+	background-color: transparent;
+	border: 0px transparent;
 }
 /* 자동 로그인 체크박스 */
-.Login_Auto {
-    margin-top: 0.625rem;
+.login-auto {
+	margin-top: 0.625rem;
 }
-#modal-dialog {
-    margin-top: 2rem;
+#modalDialog {
+	margin-top: 2rem;
+}
+#resetModalDialog {
+	margin-top: 4rem;
 }
 /*학번 검색 주민번호 입력 칸 */
-#modal-body {
-    font-size: large;
-    text-align: center;
+#modalBody {
+	padding: 2rem 2.5rem 1rem;
+	font-size: medium;
 }
-.Search_Social_Number {
-    font-size: large;
-    text-align: center;
-    padding-bottom: 1rem;
+.search-social-number {
+	text-align: center;
+	font-size: medium;
 }
-.Search_Social_Number > #jumin3,
+.search-social-number > #jumin3,
 #jumin4 {
-    width: 7.5rem;
-    border-radius: 0.5rem;
+	text-align: center;
+	font-size: larger;
+	margin-top: 5px;
+	width: 47%;
+	border-radius: 4px;
+	margin-bottom: 1.8rem;
 }
 /* 학번 검색 결과 */
 #demo {
-    text-align: center;
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
-    font-size: 1.25rem;
+	text-align: center;
+	padding-top: 0.5rem;
+	padding-bottom: 0.5rem;
+	font-size: 1.25rem;
+}
+/* 비밀번호 초기화 모달 */
+#staticBackdropLabel {
+	font-weight: bold;
+}
+#modalBody label {
+	font-weight: bold;
 }
 /* 비밀번호 초기화 주민번호 입력 칸 */
-.Reset_Social_Number > #jumin1,
+.reset-social-number > #jumin1,
 #jumin2 {
-    width: 6rem;
-    border-radius: 0.5rem;
-    margin-bottom: 1rem;
+	text-align: center;
+	font-size: larger;
+	margin-top: 5px;
+	width: 47%;
+	border-radius: 4px;
+	margin-bottom: 1.8rem;
 }
-.Reset_Student_ID {
-    text-align: center;
-    font-size: large;
+.reset-student-id {
+	text-align: center;
+	font-size: medium;
 }
-.Reset_Student_ID > #Reset_Student_ID {
-    width: 10rem;
-    border-radius: 0.5rem;
+.reset-student-id > #resetStudentID {
+	text-align: center;
+	font-size: larger;
+	margin-top: 5px;
+	margin-bottom: 1.8rem;
+	width: 100%;
+	border-radius: 4px;
 }
 /* 초기화 완료 모달 창 */
-#reset-modal-body {
-    font-size: large;
-    text-align: center;
-    padding: 70px 0;
+#resetModalBody {
+	font-size: large;
+	text-align: center;
+	padding: 70px 0;
 }
