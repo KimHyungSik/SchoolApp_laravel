@@ -1,0 +1,123 @@
+.community-body {
+	max-width: 100%;
+	max-height: 100%;
+	margin: 0px;
+}
+.community-home {
+	text-align: center;
+	background-color: #8283a7;
+}
+.community-logo-img {
+	padding-top: 5rem;
+}
+.menu-title span {
+	float: none;
+	padding-left: 2.2rem;
+	display: inline-block;
+	color: #ffffff;
+}
+.menu-title a {
+	float: right;
+	padding-right: 1rem;
+	display: inline-block;
+	color: #ffffff;
+}
+.title.sticky {
+	position: fixed;
+	top: 0;
+	width: 100%;
+	text-align: center;
+	background-color: #8283a7;
+}
+.title {
+	position: absolute;
+	width: 100%;
+}
+/* Nav_1 => 공지사항, 자유게시판 */
+.community-nav-1 {
+	border-bottom: 1px solid #b4b4b4;
+	background-color: #f3f3f3;
+	padding: 0 1rem;
+	margin: 0px;
+	list-style: none;
+	display: flex;
+	justify-content: space-around;
+}
+.community-nav-1 a {
+	position: relative;
+	line-height: 2.5rem;
+	height: 2.5rem;
+	font-size: 20px;
+	font-weight: bold;
+	color: #cfcfcf;
+	text-decoration: none;
+}
+.community-nav-1 a.nav1-on {
+	color: #50528e;
+}
+.community-nav-1 a.nav1-on::after {
+	content: "";
+	position: absolute;
+	left: 0;
+	bottom: -1px;
+	width: 100%;
+	height: 3px;
+	background-color: #50528e;
+}
+
+/* Nav_2 => 학교, 교수님, 학과 */
+.community-nav-2 {
+	border-bottom: 2px solid #b4b4b4;
+	background-color: #f3f3f3;
+	padding: 0 1.5rem;
+	margin: 0px;
+	list-style: none;
+	display: flex;
+	justify-content: space-around;
+}
+.community-nav-2 a {
+	display: inline-block;
+	line-height: 2.5rem;
+	height: 2.5rem;
+	font-size: 18px;
+	font-weight: bold;
+	color: #cfcfcf;
+	text-decoration: none;
+}
+.community-nav-2 a.nav2-on {
+	color: #50528e;
+	position: relative;
+}
+.community-nav-2 a.nav2-on::after {
+	content: "";
+	position: absolute;
+	left: 0;
+	bottom: -2px;
+	width: 100%;
+	height: 3px;
+	background-color: #50528e;
+}
+
+.list-group {
+	list-style: none;
+	padding-top: 10.5rem;
+	margin-bottom: 58px;
+}
+.list-group h5 {
+	font-weight: bold;
+}
+.list-group .list {
+	border-bottom: 1px solid #cfcfcf;
+}
+.list-group li {
+	padding: 0.5rem 1rem;
+	margin-top: 5px;
+}
+.list-group li p {
+	text-align: left;
+	margin: 0;
+}
+.list-group a {
+	color: #000;
+	text-decoration-line: none;
+}
