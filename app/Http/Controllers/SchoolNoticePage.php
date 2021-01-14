@@ -13,7 +13,15 @@ class SchoolNoticePage extends Controller
 		$curl = new CurlController();
 		$response = $curl->curlGet($url_id);
 
-		$data = $response;
-		return view('Notice.SchoolNotice', compact('data'));
+		$data = $response[0];
+		$content = $this->xmlentity_decode($data['content']);
+		return view('Notice.SchoolNotice', compact('data', 'content'));
+	}
+
+	function xmlentity_decode($input)
+	{
+		$match = array('/&amp;/', '/&gt;/', '/&lt;/', '/&apos;/', '/&quot;/', '/&nbsp;/');
+		$replace = array('&', '>', '<', '\'', '"', ' ');
+		return preg_replace($match, $replace, $input);
 	}
 }

@@ -6,30 +6,21 @@
             name="viewport"
             content="width=device-width, initial-scale=1.0, minimum-scale=1.0,maximum-scale=1.0"
         />
-        <link rel="stylesheet" type="text/css" href="css/Login.css" />
-        <link
-            href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
-            rel="stylesheet"
-            integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
-            crossorigin="anonymous"
-        />
-        <link
-            rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"
-        />
+        <link rel="stylesheet" type="text/css" href="{{asset('css/Login.css')}}"" />
+		<link rel="stylesheet"
+		      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"/>
+        <link rel="stylesheet"
+              href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"/>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-        <script
-            src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
-            crossorigin="anonymous"
-        ></script>
-        <title>Login</title>
+		<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
+		<title>Login</title>
     </head>
-    <body class="Login_Body">
+    <body class="login-body">
         <!-- 로그인 화면 학교로고 -->
             <header>
-                <h1 class="Login_Logo">
+                <h1 class="login-logo">
                     <img src="images/Login_Logo.png" />
                 </h1>
             </header>
@@ -38,7 +29,7 @@
                     class="d-flex justify-content-center align-items-center container"
                 >
                     <!-- 로그인 입력 부분 -->
-                    <form action="{{route('LoginControll')}}" method="POST">
+                    <form name="loginForm" action="{{route('LoginControll')}}" method="POST">
                     @csrf
                         <div class="form-group">
                             <input
@@ -59,7 +50,7 @@
                                 placeholder="Password"
                             />
                         </div>
-                        <div class="Login_Auto">
+                        <div class="login-auto">
                             <input
                                 type="checkbox"
                                 class="form-check-input"
@@ -71,21 +62,21 @@
                             >
                         </div>
                         <div>
-                            <button
-                                type="submit"
+                            <input
+								type="button"
+								onclick="loginCheck()"
                                 class="btn btn-primary"
-                                id="Login_Btn"
-                            >
-                                로그인
-                            </button>
+								id="loginButton"
+								value="로그인"
+                            />
                         </div>
                     </form>
                 </div>
-            <div class="Login_Option">
+            <div class="login-option">
                 <div>
                     <button
                         type="button"
-                        id="Reset_PW"
+                        id="resetPassword"
                         data-toggle="modal"
                         data-target="#staticBackdrop_PW_Reset"
                     >
@@ -94,7 +85,7 @@
                     <span>|</span>
                     <button
                         type="button"
-                        id="Search_ID"
+                        id="searchID"
                         data-toggle="modal"
                         data-target="#staticBackdrop"
                     >
@@ -112,124 +103,45 @@
                 aria-labelledby="staticBackdropLabel"
                 aria-hidden="true"
             >
-                <div class="modal-dialog" id="modal-dialog" role="document">
+                <div class="modal-dialog" id="modalDialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="staticBackdropLabel">
+                            <h4 class="modal-title" id="staticBackdropLabel">
                                 비밀번호 초기화
-                            </h5>
-                        </div>
-                        <span class="modal-body" id="modal-body">
-                        </span>
-                            <form class="Reset_Student_ID">
-                                학번 :
-                                <input
-                                    type="tel"
-                                    id="Reset_Student_ID"
-                                    name="inputValue"
-                                    maxlength="8"
-                                />
-                            </form>
-                        <span class="modal-body" id="modal-body">
-                          <form class="Reset_Social_Number">
-                            주민번호 :
-                                <input
-                                    type="tel"
-                                    id="jumin1"
-                                    name="inputValue"
-                                    maxlength="6"
-                                />
-                                - <input type="tel" id="jumin2" maxlength="7" />
-                                <input
-                                    type="hidden"
-                                    id="juminE"
-                                    name="inputValue"
-                                    maxlength="7"
-                                />
-                        </span>
-                        <script>
-                            $("#jumin1").on("keypress", function () {
-                                var text = $("#jumin1")
-                                    .val()
-                                    .replace(/[^0-9]/g, "");
-                                if (text.length >= $(this).attr("maxlength")) {
-                                    $("#jumin2").focus();
-                                    return;
-                                }
-                                $(this).val(text);
-                            });
-                            $("#jumin2")
-                                .on("keypress", function (e) {
-                                    //숫자만 입력되게
-                                    var inVal = "";
-                                    if (event.keyCode === 8) {
-                                        $("#juminE").val("");
-                                        $("#jumin2").val("");
-                                    } else if (
-                                        e.keyCode >= 96 &&
-                                        e.keyCode <= 105
-                                    ) {
-                                        switch (e.keyCode) {
-                                            case 96:
-                                                inVal = 0;
-                                                break;
-                                            case 97:
-                                                inVal = 1;
-                                                break;
-                                            case 98:
-                                                inVal = 2;
-                                                break;
-                                            case 99:
-                                                inVal = 3;
-                                                break;
-                                            case 100:
-                                                inVal = 4;
-                                                break;
-                                            case 101:
-                                                inVal = 5;
-                                                break;
-                                            case 102:
-                                                inVal = 6;
-                                                break;
-                                            case 103:
-                                                inVal = 7;
-                                                break;
-                                            case 104:
-                                                inVal = 8;
-                                                break;
-                                            case 105:
-                                                inVal = 9;
-                                                break;
-                                        }
-                                    } else if (
-                                        e.keyCode >= 48 &&
-                                        e.keyCode <= 57
-                                    ) {
-                                        inVal = String.fromCharCode(e.keyCode);
-                                    } else {
-                                        e.preventDefault();
-                                        return false;
-                                    }
-                                    var text = $(this).val();
-                                    if (
-                                        text.length >= $(this).attr("maxlength")
-                                    ) {
-                                        return;
-                                    }
-                                    // 주민번호에 넣고
-                                    var jume = $("#juminE").val() + inVal;
-                                    $("#juminE").val(
-                                        jume.replace(/[^0-9]/g, "")
-                                    );
-                                })
-                                .on("input", function (e) {
-                                    $(this).val(
-                                        $(this)
-                                            .val()
-                                            .replace(/(?<=.{1})./gi, "*")
-                                    );
-                                });
-                        </script>
+                            </h4>
+						</div>
+						<div id="modalBody">
+							<label for="resetStudentID">
+								학번을 입력하세요.
+							</label>
+								<form class="reset-student-id">
+									<input
+										type="tel"
+										id="resetStudentID"
+										name="inputValue"
+										maxlength="8"
+									/>
+								</form>
+								<label for="reset-social-number">
+									주민번호를 입력하세요.
+								</label>
+								<form class="reset-social-number">
+									<input
+										type="tel"
+										id="jumin1"
+										name="inputValue"
+										maxlength="6"
+									/>
+									- <input type="tel" id="jumin2" maxlength="7"/>
+									<input
+										type="hidden"
+										id="juminE"
+										name="inputValue"
+										maxlength="7"
+									/>
+								</form>
+						</div>
+
                         <!-- 학번 검색 결과 -->
                         <div class="modal-footer">
                             <button
@@ -244,7 +156,7 @@
                                     type="button"
                                     class="btn btn-primary"
                                     data-toggle="modal"
-                                    href="#Reset_Success"
+                                    href="#resetSuccess"
                                 >
                                     초기화
                                 </button>
@@ -252,16 +164,16 @@
                         </div>
                         <div
                             class="modal fade"
-                            id="Reset_Success"
+                            id="resetSuccess"
                             data-backdrop="static"
                             tabindex="-1"
                             role="dialog"
                             aria-labelledby="staticBackdropLabel"
                             aria-hidden="true"
                         >
-                            <div class="modal-dialog" id="modal-dialog" role="document">
+                            <div class="modal-dialog" id="resetModalDialog" role="document">
                                 <div class="modal-content">
-                                    <div class="modal-body" id="reset-modal-body">
+                                    <div class="modal-body" id="resetModalBody">
                                         비밀번호가 초기화 되었습니다.
                                     </div>
                                     <div class="modal-footer">
@@ -298,120 +210,37 @@
                 aria-labelledby="staticBackdropLabel"
                 aria-hidden="true"
             >
-                <div class="modal-dialog" id="modal-dialog" role="document">
+                <div class="modal-dialog" id="modalDialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
                             <h5 class="modal-title" id="staticBackdropLabel">
                                 학번 검색
                             </h5>
                         </div>
-                        <div class="modal-body" id="modal-body">
-                            주민번호를 입력하세요.
-                        </div>
-                        <form>
-                            <div class="Search_Social_Number">
-                                <input
-                                    type="tel"
-                                    id="jumin3"
-                                    name="inputValue"
-                                    maxlength="6"
-                                />
-                                - <input type="tel" id="jumin4" maxlength="7" />
-                                <input
-                                    type="hidden"
-                                    id="juminE"
-                                    name="inputValue"
-                                    maxlength="7"
-                                />
-                            </div>
-                        </form>
+                        <div class="modal-body" id="modalBody">
+							<label>주민번호를 입력하세요.</label>
+							<form>
+								<div class="search-social-number">
+									<input
+										type="tel"
+										id="jumin3"
+										name="inputValue"
+										maxlength="6"
+									/>
+									- <input type="tel" id="jumin4" maxlength="7" />
+									<input
+										type="hidden"
+										id="juminE"
+										name="inputValue"
+										maxlength="7"
+									/>
+								</div>
+							</form>
+						</div>
                         <div id="demo" class="collapse">
                             학번 : 20074008<br />
                             학과 : 드론로봇
                         </div>
-                        <script>
-                            $("#jumin3").on("keypress", function () {
-                                var text = $("#jumin3")
-                                    .val()
-                                    .replace(/[^0-9]/g, "");
-                                if (text.length >= $(this).attr("maxlength")) {
-                                    $("#jumin4").focus();
-                                    return;
-                                }
-                                $(this).val(text);
-                            });
-                            $("#jumin4")
-                                .on("keypress", function (e) {
-                                    //숫자만 입력되게
-                                    var inVal = "";
-                                    if (event.keyCode === 8) {
-                                        $("#juminE").val("");
-                                        $("#jumin4").val("");
-                                    } else if (
-                                        e.keyCode >= 96 &&
-                                        e.keyCode <= 105
-                                    ) {
-                                        switch (e.keyCode) {
-                                            case 96:
-                                                inVal = 0;
-                                                break;
-                                            case 97:
-                                                inVal = 1;
-                                                break;
-                                            case 98:
-                                                inVal = 2;
-                                                break;
-                                            case 99:
-                                                inVal = 3;
-                                                break;
-                                            case 100:
-                                                inVal = 4;
-                                                break;
-                                            case 101:
-                                                inVal = 5;
-                                                break;
-                                            case 102:
-                                                inVal = 6;
-                                                break;
-                                            case 103:
-                                                inVal = 7;
-                                                break;
-                                            case 104:
-                                                inVal = 8;
-                                                break;
-                                            case 105:
-                                                inVal = 9;
-                                                break;
-                                        }
-                                    } else if (
-                                        e.keyCode >= 48 &&
-                                        e.keyCode <= 57
-                                    ) {
-                                        inVal = String.fromCharCode(e.keyCode);
-                                    } else {
-                                        e.preventDefault();
-                                        return false;
-                                    }
-                                    var text = $(this).val();
-                                    if (
-                                        text.length >= $(this).attr("maxlength")
-                                    ) {
-                                        return;
-                                    }
-                                    // 주민번호에 넣고
-                                    var jume = $("#juminE").val() + inVal;
-                                    $("#juminE").val(
-                                        jume.replace(/[^0-9]/g, "")
-                                    );
-                                })
-                                .on("input", function (e) {
-                                    $(this).val(
-                                        $(this)
-                                            .val()
-                                            .replace(/(?<=.{1})./gi, "*")
-                                    );
-                                });
-                        </script>
                         <!-- 학번 검색 결과 -->
                         <div class="modal-footer">
                             <button
@@ -435,6 +264,12 @@
                     </div>
                 </div>
             </div>
-        </main>
-    </body>
+		</main>
+		<script type="text/javascript" src="{{asset('js/login.js')}}"></script>
+		@if($error == true)
+		<script>
+			errorMessage();
+		</script>
+		@endif
+	</body>
 </html>

@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-	return view('LoginPage');
+	return view('LoginPage', ['error' => false]);
 })->middleware('LoginCookie')->name('default');
 
 //로그인 후 제일 처음 페이지

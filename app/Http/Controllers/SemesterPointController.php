@@ -17,6 +17,6 @@ class SemesterPointController extends Controller
 
 		//$view = view('Semester.SemesterPoint');
 
-		return dd($get_semester_point->GetSemesterPoint($studentID));
+		return json_decode($get_semester_point->GetSemesterPoint($studentID));
 	}
 }

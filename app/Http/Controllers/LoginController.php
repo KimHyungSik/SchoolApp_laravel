@@ -15,9 +15,8 @@ class LoginController extends Controller
 		$curl = new CurlController();
 		$response = $curl->curlGet($url_id);
 		if ((string)$response[0]['RESULT'] != "100") {
-			return "Login Error";
+			return view('LoginPage', ['error' => true]);
 		}
-
 		//로그인 성공시 쿠기 생성
 		Cookie::queue(Cookie::make('studentID', $request->studentID, 60));
 
@@ -39,6 +38,6 @@ class LoginController extends Controller
 			Cookie::queue(Cookie::forget('studentID_save'));
 			return redirect()->route('MainPage');
 		}
-		return redirect()->route('default');
+		return redirect()->route('default', ['error' => true]);
 	}
 }

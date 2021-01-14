@@ -29,6 +29,7 @@
 						<div class="community-nav-2">
 							<a class="nav2-on" href="#a">학교</a>
 							<a href="#a">교수님</a>
+
 							<a href="#a">학과</a>
 						</div>
 					</nav>
@@ -37,7 +38,7 @@
 				<ul class="list-group">
 					@foreach($notice_datas as $notice_data)
 					<div class="list">
-						<a href="notice/{{$notice_data['take_idx']}}">
+						<a href="{{route('Notice', ['id' => $notice_data['take_idx']])}}">
 							<li>
 								<h5>{{$notice_data['title']}}</h5>
 								<p class="date">
