@@ -18,9 +18,8 @@ class BoardList extends Controller
 			'board_group' => $request['group']
 		);
 
-
 		$curl = new CurlController();
-		$response = $curl->curlPost(env('URL_LIST_BOADR'), $data);
+		$response = $curl->curlPost(env('URL_LIST_BOARD'), $data);
 		return view('Board.BoardList', compact('response'));
 	}
 }

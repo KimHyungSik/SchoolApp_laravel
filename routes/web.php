@@ -3,6 +3,7 @@
 use App\Http\Controllers\board\BoardList;
 use App\Http\Controllers\board\WritingPage;
 use App\Http\Controllers\board\DetailBoardPage;
+use App\Http\Controllers\board\ModifiedBoard;
 use App\Http\Controllers\Calendar\MainCalendar;
 use App\Http\Controllers\SemesterPointController;
 use App\Http\Controllers\MainPageContorller;
@@ -44,6 +45,9 @@ Route::get('/Board/Writing', [WritingPage::class, 'index'])->middleware('CheckLo
 Route::post('/Board/Writing', [WritingPage::class, 'post_board'])->middleware('CheckLoginCookie')->name('PostBoard');
 Route::get('/Board/detaildetail/{id}', [DetailBoardPage::class, 'index'])->middleware('CheckLoginCookie')->name('BoardDetail');
 Route::get('/Board/list/{page}/{group}', [BoardList::class, 'index'])->middleware('CheckLoginCookie')->name('BoardList');
+Route::get('/Board/Modified/{id}', [ModifiedBoard::class, 'index'])->middleware('CheckMyBoard')->name('ModifiedBoard');
+Route::get('/Board/Delete/{id}', [ModifiedBoard::class, 'delete_board'])->middleware('CheckMyBoard')->name('DeleteBoard');
+Route::post('/Board/Modified/post/{id}', [DetailBoardPage::class, 'post_modified'])->middleware('CheckMyBoard')->name('PostModifiedBoard');
 
 //로그인
 Route::post('/LoginCheck', [LoginController::class, 'index'])->name('LoginControll');

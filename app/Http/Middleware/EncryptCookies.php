@@ -14,6 +14,7 @@ class EncryptCookies extends Middleware
 	protected $except = [
 		'studentID_saveServer',
 		'studentID_save',
+		'studentID_temp',
 		'DeviceModel',
 		'DeviceVersion'
 	];

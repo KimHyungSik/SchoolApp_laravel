@@ -28,7 +28,7 @@ class Kernel extends HttpKernel
 	 * @var array
 	 */
 	protected $middlewareGroups = [
-		'_web' => [
+		'admin' => [
 			\App\Http\Middleware\EncryptCookies::class,
 			\Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
 			\Illuminate\Session\Middleware\StartSession::class,
@@ -38,11 +38,6 @@ class Kernel extends HttpKernel
 			\Illuminate\Routing\Middleware\SubstituteBindings::class,
 			\App\Http\Middleware\_Cookie::class,
 			\App\Http\Middleware\_Auth::class,
-		],
-
-		'_api' => [
-			'throttle:api',
-			\Illuminate\Routing\Middleware\SubstituteBindings::class,
 		],
 
 		'web' => [
@@ -81,5 +76,6 @@ class Kernel extends HttpKernel
 		'LoginCookie' => \App\Http\Middleware\LoginCookie::class, //로그인 쿠기를 가지고 있으면 메인 페이지로 이동
 		'CheckLoginCookie' => \App\Http\Middleware\MainLoginCookie::class, //로그인 쿠기 없는 경우 로그인 페이지로 이동
 		'Deviceinfomation' => \App\Http\Middleware\DeviceInfo::class,
+		'CheckMyBoard' => \App\Http\Middleware\board\CheckMyBoard::class
 	];
 }

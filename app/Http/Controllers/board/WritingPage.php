@@ -24,8 +24,7 @@ class WritingPage extends Controller
 				'student_id' => $studentID,
 				'board_title' => $request->title,
 				'board_content' => $request->content,
-				'board_is_notice' => $request->notice,
-				'board_nickname' => $request->nickname
+				'board_is_notice' => $request->notice
 			);
 			$post_field_string = http_build_query($data);
 
