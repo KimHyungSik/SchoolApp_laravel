@@ -20,7 +20,7 @@ class ModifiedBoard extends Controller
 
 		$curl = new CurlController();
 		$response = $curl->curlPost($url_id, $data);
-		$data = $response[0];
+		$data = $response;
 		return view('Board.Modified', compact('data', 'board_id'));
 	}
 

@@ -1,5 +1,30 @@
-.menu-title {
+body {
 	margin: 0;
+}
+section div {
+	padding-bottom: 1rem;
+}
+header {
+	margin: 0;
+}
+section {
+	padding: 5.5rem 1rem 0 1rem;
+}
+.comment {
+	padding-bottom: 56px;
+}
+.writeday {
+	border-bottom: 1px solid #cfcfcf;
+}
+.content {
+	padding-top: 1rem;
+	border-bottom: 3px solid #707070;
+}
+.notice-title {
+	position: fixed;
+	top: 0;
+	width: 100%;
+	margin-top: 0;
 	padding-top: 2.3rem;
 	padding-bottom: 1rem;
 	text-align: center;
@@ -8,4 +33,38 @@
 	font-size: 24px;
 	font-weight: bold;
 	color: #ffffff;
+}
+
+footer nav {
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	background-color: #f3f3f3;
+	border-top: 2px solid #b4b4b4;
+}
+footer nav div {
+	position: relative;
+	display: flex;
+	width: 100%;
+	margin: 0 auto;
+}
+footer nav div span {
+	display: inline-block;
+	text-align: center;
+	line-height: 60px;
+	height: 56px;
+	float: left;
+	color: #cfcfcf;
+}
+
+footer nav div a {
+	text-decoration: none;
+	flex: 1;
+	display: inline-block;
+	text-align: center;
+	line-height: 60px;
+	height: 56px;
+	float: left;
+	color: #b4b4b4;
 }

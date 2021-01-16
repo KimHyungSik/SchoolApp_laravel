@@ -10,7 +10,18 @@
 .community-logo-img {
 	padding-top: 5rem;
 }
-
+.menu-title span {
+	float: none;
+	padding-left: 2.2rem;
+	display: inline-block;
+	color: #ffffff;
+}
+.menu-title a {
+	float: right;
+	padding-right: 1rem;
+	display: inline-block;
+	color: #ffffff;
+}
 .title.sticky {
 	position: fixed;
 	top: 0;
@@ -99,7 +110,7 @@
 	border-bottom: 1px solid #cfcfcf;
 }
 .list-group li {
-	padding: 0.5rem 1.5rem;
+	padding: 0.5rem 1rem;
 	margin-top: 5px;
 }
 .list-group li p {

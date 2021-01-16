@@ -22,11 +22,11 @@ class DetailBoardPage extends Controller
 
 			$curl = new CurlController();
 			$response = $curl->curlPost($url_id, $data);
-			$data = $response[0];
+			$data = $response;
 
 			$match_url_id = env('URL_MATCH_BOARD');
 			$match_data = array(
-				'student_id' => Cookie::get('studentID'),
+				'user_id' => Cookie::get('studentID'),
 				'board_id' => $board_id
 			);
 			$match_response = $curl->curlPost($match_url_id, $match_data);
