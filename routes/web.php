@@ -47,6 +47,7 @@ Route::get('/Board/Writing', [WritingPage::class, 'index'])->middleware('CheckLo
 Route::post('/Board/Writing', [WritingPage::class, 'post_board'])->middleware('CheckLoginCookie')->name('PostBoard');
 Route::get('/Board/detaildetail/{id}', [DetailBoardPage::class, 'index'])->middleware('CheckLoginCookie')->name('BoardDetail');
 Route::get('/Board/list/{page}/{group}', [BoardList::class, 'index'])->middleware('CheckLoginCookie')->name('BoardList');
+Route::post('/Board/list/{group}', [BoardList::class, 'post_index'])->middleware('CheckLoginCookie')->name('PostBoardList');
 Route::get('/Board/Modified/{id}', [ModifiedBoard::class, 'index'])->middleware('CheckMyBoard')->name('ModifiedBoard');
 Route::get('/Board/Delete/{id}', [ModifiedBoard::class, 'delete_board'])->middleware('CheckMyBoard')->name('DeleteBoard');
 Route::post('/Board/Modified/post/{id}', [DetailBoardPage::class, 'post_modified'])->middleware('CheckMyBoard')->name('PostModifiedBoard');
