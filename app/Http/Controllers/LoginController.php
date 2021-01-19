@@ -19,6 +19,7 @@ class LoginController extends Controller
 		$curl = new CurlController();
 		$response = $curl->curlGet($url_id);
 
+		//로그인 실패 확인
 		if ((string)$response[0]['RESULT'] != "100") {
 			return view('LoginPage', ['error' => true]);
 		}

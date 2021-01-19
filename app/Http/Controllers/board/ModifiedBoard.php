@@ -4,6 +4,7 @@ namespace App\Http\Controllers\board;
 
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\CurlController;
+use App\Http\Controllers\UrlController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cookie;
 
@@ -35,8 +36,7 @@ class ModifiedBoard extends Controller
 		);
 
 		$curl = new CurlController();
-		$response = $curl->curlPost($url_id, $data);
-		$BoardList = new BoardList();
-		return $BoardList->index($request);
+		$curl->curlPost($url_id, $data);
+		return redirect()->back();
 	}
 }

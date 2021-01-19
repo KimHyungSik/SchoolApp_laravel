@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Cookie;
 
 class MainCalendar extends Controller
 {
+	//rowsapn용 int 2차원 데이터
 	private $row_array = array(
 		array(),
 		array(),
@@ -37,7 +38,8 @@ class MainCalendar extends Controller
 		return view('Calendar.Calendar', compact('time_arr', 'contents_arr', 'temp_row_array'));
 	}
 
-	function time_set()
+	//시간을 30분 단위로 나누어 배열
+	private function time_set()
 	{
 		$time = 9;
 		$time_arr = [];
@@ -49,9 +51,11 @@ class MainCalendar extends Controller
 		return $time_arr;
 	}
 
-	function schedule_set($jsons)
+	private function schedule_set($jsons)
 	{
+		//요일별 매칭용
 		$week = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'];
+		//데이터 삽입용 2차원 배열
 		$arr = array(
 			array(),
 			array(),
@@ -60,7 +64,9 @@ class MainCalendar extends Controller
 			array()
 		);
 
+		//요일 카운터
 		$time_count = 0;
+		//2차원 배열에 데이터를 채운다
 		foreach ($jsons as $json) {
 			foreach ($week as $index => $day) {
 				$arr[$index][$time_count] = $json->$day;
@@ -70,6 +76,7 @@ class MainCalendar extends Controller
 		}
 
 		$time_count = 0;
+		//데이터를 검사 하여 rowspan용 temp_row_array를 채운다
 		foreach ($jsons as $json) {
 			if ($time_count > 18) {
 				break;

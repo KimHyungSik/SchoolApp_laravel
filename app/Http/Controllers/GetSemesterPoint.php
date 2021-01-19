@@ -23,10 +23,9 @@ class GetSemesterPoint extends Controller
 
 			//xml 파싱
 			$object = simplexml_load_string($xml_response);
-			$List = $object->Hakgi;
 
 			//출력 부분
-			return $List;
+			return $object;
 		} catch (\Exception $e) {
 			return redirect()->back()->withErrors(['msg', 'The Message']);  //학번 검색 실패 시 기본화면으로 전환
 		}

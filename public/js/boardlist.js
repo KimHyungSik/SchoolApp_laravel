@@ -35,11 +35,13 @@ $(this).scroll(function () {
 				page_num: page,
 				page_size: "10",
 				board_group: getParam("group"),
+				searck_key: document.getElementById("title-content-search").value,
+				search_value: $("#search_text").val()
 			},
 			success: function (result) {
 				for (var i = 0; i < result.length; i++) {
 					$("#enters").append(
-						`<li style= 'margin: 100px'> <a href='/Board/detaildetail/${result[i].board_id}'>${result[i].title}</a></li>`
+						`<div><li><a href='/Board/detaildetail/${result[i].board_id}'><h5>${result[i].title}</h5></a></li></div>`
 					);
 				}
 			},
@@ -55,4 +57,10 @@ function getParam() {
 		params[params.length - 2] +
 		params[params.length - 1];
 	return sval;
+}
+
+function getSelectValue() {
+	var selectedValue = document.getElementById("board-title-search").value;
+	var url = "/Board/list/1/";
+	document.getElementById("list-search-form").action = url + selectedValue;
 }

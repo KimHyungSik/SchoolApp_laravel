@@ -9,8 +9,8 @@ class SchoolNotice extends Controller
 	{
 		try {
 			$data = array(
-				'page_num' => $num,
-				'page_size' => $size,
+				'page_num' => $num,		// 페이지
+				'page_size' => $size,	// 크기
 			);
 			$curl = new CurlController();
 			$response = $curl->curlPost(env("URL_NEWS_LIST"), $data);
