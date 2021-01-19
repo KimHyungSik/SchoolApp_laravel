@@ -1,3 +1,6 @@
+/* 학교 공지사항
+SchoolNotice */
+
 body {
 	margin: 0;
 }
@@ -21,8 +24,17 @@ header h3 span {
 section {
 	padding: 5.5rem 1rem 0 1rem;
 }
+.edit-comment {
+	padding-bottom: 60px;
+}
 .comment {
-	padding-bottom: 56px;
+	padding: 2rem 1rem 8rem 1rem;
+}
+.comment ul {
+	list-style: none;
+}
+.comment ul li {
+	padding-top: 30px;
 }
 .writeday {
 	border-bottom: 1px solid #cfcfcf;
@@ -53,6 +65,7 @@ footer nav {
 	width: 100%;
 	background-color: #f3f3f3;
 	border-top: 2px solid #b4b4b4;
+	border-bottom: 2px solid #b4b4b4;
 }
 footer nav div {
 	position: relative;
@@ -75,7 +88,7 @@ footer nav div a {
 	display: inline-block;
 	text-align: center;
 	line-height: 60px;
-	height: 56px;
+	height: 60px;
 	float: left;
 	color: #b4b4b4;
 }

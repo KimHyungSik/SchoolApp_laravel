@@ -70,40 +70,39 @@
 					</div>
 				</div>
 			</nav>
+			<form id="list-search-form" action="/Board/list/1/{{$board_group}}" method="POST">
+				@csrf
+				<div class="searchbox">
+					<select name="search_key" class="form-select" id="title-content-search">
+						<option value="title">제목</option>
+						<option value="cotent">내용</option>
+						<option value="title+content">제목+내용</option>
+					</select>
+					@if ($search_text)
+					<input
+						class="form-control"
+						type="text"
+						placeholder="검색어를 입력하세요."
+						name="search_text"
+						value="{{ $search_text }}"
+					/>
+					@else
+					<input
+						class="form-control"
+						type="text"
+						placeholder="검색어를 입력하세요."
+						name="search_text"
+					/>
+					@endif
+
+					<button type="submit" class="btn btn-primary" id="searchButton">
+						검색
+					</button>
+				</div>
+			</form>
 		</div>
 	</header>
-
 	<ul id="enters">
-		<form id="list-search-form" action="/Board/list/1/{{$board_group}}" method="POST">
-			@csrf
-			<div class="searchbox">
-				<select name="search_key" class="form-select" id="title-content-search">
-					<option value="title">제목</option>
-					<option value="content">내용</option>
-					<option value="title+content">제목+내용</option>
-				</select>
-				@if ($search_text)
-				<input
-					class="form-control"
-					type="text"
-					placeholder="검색어를 입력하세요."
-					name="search_text"
-					value="{{ $search_text }}"
-				/>
-				@else
-				<input
-					class="form-control"
-					type="text"
-					placeholder="검색어를 입력하세요."
-					name="search_text"
-				/>
-				@endif
-
-				<button type="submit" class="btn btn-primary" id="searchButton">
-					검색
-				</button>
-			</div>
-		</form>
 		@foreach ($response as $item)
 		<div>
 			<li>

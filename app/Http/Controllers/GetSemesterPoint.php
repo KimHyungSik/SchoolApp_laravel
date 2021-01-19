@@ -7,10 +7,10 @@ use Illuminate\Http\Request;
 class GetSemesterPoint extends Controller
 {
 	//학기 점수를 불러온 뒤 리턴
-	private $url = "http://haksa.koreait.kr/appxml/";
 	public function GetSemesterPoint(string $studentId)
 	{
-		$url_id = $this->url . $studentId . ".xml";         //url 생성
+		$url = env('URL_GRADE');
+		$url_id = $url . $studentId . ".xml";         //url 생성
 		try {
 			//curl 설정
 			$ch = curl_init();                                 //curl 초기화

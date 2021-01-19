@@ -1,0 +1,73 @@
+.menu-title {
+	margin: 0;
+	padding-top: 2.3rem;
+	padding-bottom: 1rem;
+	text-align: center;
+	background-color: #8283a7;
+	border-bottom: 1px solid #707070;
+	font-size: 24px;
+	font-weight: bold;
+	color: #ffffff;
+}
+.footer-nav {
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	background-color: #f3f3f3;
+	border-top: 2px solid #b4b4b4;
+}
+.footer-nav div {
+	/* box-shadow: 0px -1px 2.5px 0px; */
+	display: flex;
+	width: 100%;
+	margin: 0 auto;
+	position: relative;
+}
+.footer-nav div a {
+	flex: 1;
+	display: block;
+	text-align: center;
+	line-height: 60px;
+	height: 60px;
+	float: left;
+	color: #cfcfcf;
+}
+.footer-nav div a label {
+	padding-top: 5px;
+	display: block;
+	font-size: 0.5rem;
+}
+.footer-nav div a.on {
+	color: #50528e;
+}
+.footer-nav div > span {
+	position: absolute;
+	left: 0;
+	bottom: 57px;
+	width: 20%;
+	height: 5px;
+	background-color: #50528e;
+	transition: all 0.3s;
+	opacity: 0;
+}
+.footer-nav div a:nth-child(1).on ~ span {
+	opacity: 1;
+	left: 0%;
+}
+.footer-nav div a:nth-child(2).on ~ span {
+	opacity: 1;
+	left: 20%;
+}
+.footer-nav div a:nth-child(3).on ~ span {
+	opacity: 1;
+	left: 40%;
+}
+.footer-nav div a:nth-child(4).on ~ span {
+	opacity: 1;
+	left: 60%;
+}
+.footer-nav div a:nth-child(5).on ~ span {
+	opacity: 1;
+	left: 80%;
+}
