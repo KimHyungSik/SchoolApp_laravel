@@ -4,7 +4,6 @@ namespace App\Http\Controllers\board;
 
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\CurlController;
-use App\Http\Controllers\UrlController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cookie;
 
@@ -12,17 +11,21 @@ class ModifiedBoard extends Controller
 {
 	public function index(Request $request)
 	{
-		$url_id = env('URL_VIEW_BOARD');
-		$board_id =  $request['id'];
+		try{
+			$url_id = env('URL_VIEW_BOARD');
+			$board_id =  $request['id'];
 
-		$data = array(
-			'board_id' => $board_id
-		);
+			$data = array(
+				'board_id' => $board_id
+			);
 
-		$curl = new CurlController();
-		$response = $curl->curlPost($url_id, $data);
-		$data = $response;
-		return view('Board.Modified', compact('data', 'board_id'));
+			$curl = new CurlController();
+			$response = $curl->curlPost($url_id, $data);
+			$data = $response;
+			return view('Board.Modified', compact('data', 'board_id'));
+		}catch (\Exception $e) {
+			return $e;
+		}
 	}
 
 	public function delete_board(Request $request)
@@ -36,7 +39,8 @@ class ModifiedBoard extends Controller
 		);
 
 		$curl = new CurlController();
-		$curl->curlPost($url_id, $data);
-		return redirect()->back();
+		$response = $curl->curlPost($url_id, $data);
+		$BoardList = new BoardList();
+		return $BoardList->index($request);
 	}
 }

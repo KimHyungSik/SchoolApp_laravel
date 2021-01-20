@@ -12,6 +12,10 @@
 	<h3>학과 : {{$response['depart']}}</h3>
 	<h3>학년 : {{$response['year']}}</h3>
 
+	<div>
+		<a href="{{route('LogOut')}}">로그아웃</a>
+	</div>
+
 	<script>
 		function post_nickname(studentID){
 			$.ajax({
@@ -29,7 +33,6 @@
 			}
 		});
 	}
-
 	</script>
 @endsection
 

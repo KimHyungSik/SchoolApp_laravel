@@ -5,6 +5,7 @@ namespace App\Http\Controllers\board;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Controllers\CurlController;
+use App\Http\Controllers\UserInfo;
 use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\URL;
 
@@ -56,7 +57,27 @@ class DetailBoardPage extends Controller
 				$is_like = true;
 			}
 
-			return view('Board.DetailBoard', compact('data', 'student_id', 'my_board', 'board_id', 'is_like'));
+			//댓글 불러오기
+			$comment_url_id = env('URL_LIST_COMMENT');
+			$comment_data = array(
+				'board_id' => $board_id,
+				'user_id' => $student_id,
+				'page_num' => 1,
+				'page_size' => 10
+			);
+			$comment_datas = $curl->curlPost($comment_url_id, $comment_data);
+
+			//유저 정보
+			$userController = new UserInfo();
+			$uesr = $userController->user_info();
+
+			if ($request['group'] == '902') {
+				$userName = $uesr['nickname'];
+			} else {
+				$userName = $uesr['user_name'];
+			}
+
+			return view('Board.DetailBoard', compact('data', 'student_id', 'my_board', 'board_id', 'is_like', 'comment_datas', 'userName'));
 		} catch (\Exception $e) {
 			return redirect()->back();
 		}

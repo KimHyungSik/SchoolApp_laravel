@@ -19,7 +19,12 @@
 	<footer>
 		<nav>
 			<div>
-				<a href="javascript:void(0)" onclick="LikeBoard({{$board_id}},{{$student_id}})">좋아요</a>
+				@if ($is_like)
+					<a href="javascript:void(0)" style="color: blue" onclick="LikeBoard({{$board_id}},{{$student_id}})">좋아요</a>
+				@else
+					<a href="javascript:void(0)" onclick="LikeBoard({{$board_id}},{{$student_id}})">좋아요</a>
+				@endif
+
 				<span>|</span>
 				<a id="comment-focus"
 					><i class="far fa-comment-alt"></i> 댓글</a

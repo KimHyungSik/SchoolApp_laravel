@@ -3,7 +3,7 @@
 <link
 	rel="stylesheet"
 	type="text/css"
-	href="{{ asset('css/BoardList.css') }}"
+	href="{{ asset('css/Board/BoardList.css') }}"
 />
 <body class="community-body">
 	<section class="community-home">
@@ -106,7 +106,7 @@
 		@foreach ($response as $item)
 		<div>
 			<li>
-				<a href="{{route('BoardDetail', ['id' => $item['board_id']])}}">
+				<a href="{{route('BoardDetail', ['id' => $item['board_id'], 'group' => $board_group ])}}">
 					<h5>
 						{{ $item["title"] }}
 					</h5>
