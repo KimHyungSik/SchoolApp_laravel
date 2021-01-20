@@ -1,0 +1,49 @@
+body {
+	margin: 0;
+	max-width: 100%;
+	max-height: 100%;
+}
+body section {
+	padding-top: 5.1rem;
+}
+/* section a {
+	text-decoration: none;
+	color: #000;
+}
+section div {
+	border-bottom: 1px solid #000;
+	background-color: #f3f3f3;
+	font-weight: bold;
+	font-size: medium;
+	font-family: monospace;
+	width: 100%;
+	padding: 1rem 0 1rem 1rem;
+}
+section div i {
+	float: right;
+	padding-right: 1rem;
+} */
+.preferences-container {
+	width: 100%;
+	padding: 5rem 3rem;
+	display: grid;
+	grid-gap: 30px;
+	grid-template-columns: 1fr 1fr;
+}
+.preferences-container div {
+	padding-top: 3rem;
+	text-align: center;
+	height: 10rem;
+	border: 1px solid;
+	box-shadow: 3px 3px 3px 0px rgb(0 0 0 / 50%);
+	background-color: #f3f3f3;
+}
+.preferences-container a {
+	text-decoration: none;
+	color: #50528e;
+}
+.preferences-container a div small {
+	font-size: 1rem;
+	font-family: monospace;
+	font-weight: bold;
+}

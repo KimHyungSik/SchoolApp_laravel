@@ -1,0 +1,8 @@
+body {
+	margin: 0;
+	max-width: 100%;
+	max-height: 100%;
+}
+body section {
+	padding-top: 8rem;
+}

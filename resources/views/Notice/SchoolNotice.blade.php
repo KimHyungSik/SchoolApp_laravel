@@ -1,4 +1,19 @@
-@extends('layouts.ContentBottomNavigation') @section('notice-board-content')
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0, minimum-scale=1.0,maximum-scale=1.0"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"
+		/>
+		<link href="{{ asset('/css/Notice.css') }}" rel="stylesheet" />
+		<script type="text/javascript" src="https://code.jquery.com/jquery-latest.js"></script>
+
+	</head>
 	<body>
 		<header>
 			<h3 class="notice-title">
@@ -50,14 +65,13 @@
 		</section>
 		<div class="edit-comment">
 			<textarea
-				onkeydown="resize(this)"
-				onkeyup="resize(this)"
-				type="text"
-				name="title"
-				rows="1"
-				placeholder="댓글을 입력하세요."
-			></textarea>
-		</div>
+						onkeydown="resize(this)"
+						onkeyup="resize(this)"
+						type="text"
+						name="title"
+						rows="1"
+						placeholder="댓글을 입력하세요."
+					></textarea>
+				</div>
 	</body>
 </html>
-@endsection

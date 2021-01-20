@@ -7,7 +7,7 @@
             content="width=device-width, initial-scale=1.0, minimum-scale=1.0,maximum-scale=1.0"
 		/>
 		<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
-		<link href="{{ asset('/css/BottomNavigation.css') }}" rel="stylesheet">
+		<link href="{{ asset('/css/Layouts/BottomNavigation.css') }}" rel="stylesheet">
 		<link
         href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
         rel="stylesheet"
@@ -20,27 +20,26 @@
             src="https://code.jquery.com/jquery-3.5.1.min.js"
         ></script>
         <script src="{{asset('js/community.js')}}"></script>
-        <title>Community</title>
     </head>
     <body>
         @yield('content')
         <footer>
-			<nav class="Footer-Nav">
+			<nav class="footer-nav">
 			  <div>
 				<a href="{{route('Calendar')}}"
-				  ><i class="far fa-calendar-alt" style="font-size: 1.4rem; margin-top:10px;"><label>시간표</label></i
+				  ><i class="far fa-calendar-alt" style="font-size: 1.4rem; margin-top:14px;"><label>시간표</label></i
 				></a>
 				<a href="{{route('SemesterPoint')}}"
-				  ><i class="fas fa-chart-line" style="font-size: 1.4rem; margin-top:10px;"><label>성적조회</label></i
+				  ><i class="fas fa-chart-line" style="font-size: 1.4rem; margin-top:14px;"><label>성적조회</label></i
 					></a>
 				<a href="{{route('MainPage')}}"
-				  ><i class="far fa-comment-alt" style="font-size: 1.4rem; margin-top:10px;"><label>커뮤니티</label></i
+				  ><i class="far fa-comment-alt" style="font-size: 1.4rem; margin-top:14px;"><label>커뮤니티</label></i
 					></a>
 				<a href="{{route('Job')}}"
-				  ><i class="far fa-building" style="font-size: 1.4rem; margin-top:10px;"><label>구인의뢰</label></i
+				  ><i class="far fa-building" style="font-size: 1.4rem; margin-top:14px;"><label>구인의뢰</label></i
 					></a>
 				<a href="{{route('Preferences')}}"
-				  ><i class="fas fa-ellipsis-h" style="font-size: 1.4rem; margin-top:10px;"><label>더보기</label></i
+				  ><i class="fas fa-ellipsis-h" style="font-size: 1.4rem; margin-top:14px;"><label>더보기</label></i
 					></a>
 				<span></span>
 			  </div>

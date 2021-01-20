@@ -64,10 +64,12 @@ $("#jumin2")
 		$("#juminE").val(jume.replace(/[^0-9]/g, ""));
 	})
 	.on("input", function(e) {
+		var text = $(this).val();
+		var len = text.length;
 		$(this).val(
 			$(this)
-				.val()
-				.replace(/(?<=.{1})./gi, "*")
+				.val(text.replace(/[^0-9]/g, ""))
+				.replace(/[^/<]/g, "*")
 		);
 	});
 
@@ -137,10 +139,12 @@ $("#jumin4")
 		$("#juminE").val(jume.replace(/[^0-9]/g, ""));
 	})
 	.on("input", function(e) {
+		var text = $(this).val();
+		var len = text.length;
 		$(this).val(
 			$(this)
-				.val()
-				.replace(/(?<=.{1})./gi, "*")
+				.val(text.replace(/[^0-9]/g, ""))
+				.replace(/[^/<]/g, "*")
 		);
 	});
 

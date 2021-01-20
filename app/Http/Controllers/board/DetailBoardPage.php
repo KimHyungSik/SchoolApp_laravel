@@ -63,7 +63,7 @@ class DetailBoardPage extends Controller
 				'board_id' => $board_id,
 				'user_id' => $student_id,
 				'page_num' => 1,
-				'page_size' => 10
+				'page_size' => 5
 			);
 			$comment_datas = $curl->curlPost($comment_url_id, $comment_data);
 

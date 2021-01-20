@@ -63,8 +63,7 @@
                         </div>
                         <div>
                             <input
-								type="button"
-								onclick="loginCheck()"
+								type="submit"
                                 class="btn btn-primary"
 								id="loginButton"
 								value="로그인"
@@ -132,7 +131,7 @@
 										name="inputValue"
 										maxlength="6"
 									/>
-									- <input type="tel" id="jumin2" maxlength="7"/>
+									- <input type="password" id="jumin2" maxlength="7"/>
 									<input
 										type="hidden"
 										id="juminE"

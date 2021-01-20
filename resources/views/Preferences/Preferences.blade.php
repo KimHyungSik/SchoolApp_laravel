@@ -1,11 +1,8 @@
 {{-- 더보기 --}}
 @extends('layouts.BottomNavigation')
-@extends('layouts.MenuTitle')
 @section('content')
 <link href="{{ asset('/css/Preferences.css') }}" rel="stylesheet">
 	<body>
-		@section('menu-title')
-		@endsection
 		<section>
 			<div>
 				<a href="">알림설정</a>

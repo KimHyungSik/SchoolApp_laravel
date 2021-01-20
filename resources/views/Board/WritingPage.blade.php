@@ -25,7 +25,7 @@
 			<header>
 				<div>
 					<h3>
-						<a  href="{{route('MainPage')}}"><i class="fas fa-times"></i></a>
+						<a  href="javascript:history.back()"><i class="fas fa-times"></i></a>
 						<span> 커뮤니티 글쓰기 </span>
 						<button
 							type="submit"
@@ -41,8 +41,8 @@
 						<option select>게시판을 선택하세요.</option>
 						<option value="901">자유 게시판</option>
 						<option value="904">동아리 게시판</option>
-						<option value="903">건의 게시판</option>
-						<option value="902">별명 게시판</option>
+						<option value="902">건의 게시판</option>
+						<option value="903">별명 게시판</option>
 					</select>
 				</div>
 				<div class="board-title">

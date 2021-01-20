@@ -121,6 +121,7 @@ MainPage.blade */
 	font-weight: bold;
 	display: flex;
 	position: inherit;
+	word-break: keep-all;
 }
 .list li .notice-list-title div i {
 	padding-right: 1rem;

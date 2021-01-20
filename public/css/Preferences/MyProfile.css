@@ -1,0 +1,20 @@
+body {
+	margin: 0;
+	max-width: 100%;
+	max-height: 100%;
+}
+form {
+	margin: 0;
+}
+body section {
+	padding-top: 8rem;
+}
+.search-form {
+	background-color: #f3f3f3;
+}
+section form {
+	padding-bottom: 2rem;
+}
+.line {
+	border-bottom: 1px solid #b4b4b4;
+}
