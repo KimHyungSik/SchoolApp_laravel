@@ -36,9 +36,15 @@ class SemesterPointController extends Controller
 		$test = array(
 			array()
 		);
+		$total_point = array(
+			array(),
+			array()
+		);
 		//성적표 내부 채우기
 		foreach ($response as $Hakgi_index => $Hakgis) {
 			$Subject_count = 0;
+			$total_point[$Hakgi_count][0] = $Hakgis->GetHakgiPoint['avgPoint'];
+			$total_point[$Hakgi_count][1] = $Hakgis->GetHakgiPoint['avgTotalPoint'];
 			foreach ($Hakgis->List as $List_index => $list) {
 				foreach ($list as $subject_index => $subject) {
 					foreach ($Hakgi_tags as $tag_index => $Hakgi_tag) {
@@ -49,7 +55,6 @@ class SemesterPointController extends Controller
 			}
 			$Hakgi_count++;
 		}
-
 		$curl = new CurlController();
 		$data = array(
 			'user_id' => Cookie::get('studentID')
@@ -60,7 +65,7 @@ class SemesterPointController extends Controller
 		for ($i = 1; $i <= (int)$user_year; $i++) {
 			$years[$i] = $i;
 		}
-
-		return view('Semester.SemesterPoint', compact('titles', 'contents', 'years'));
+		$title = "성적";
+		return view('Semester.SemesterPoint', compact('titles', 'contents', 'years', 'total_point', 'title'));
 	}
 }

@@ -11,6 +11,8 @@
 	rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"
 	/>
+
+	<link href="{{ asset('/css/Loading/Loading.css') }}" rel="stylesheet" />
 	<link href="{{ asset('/css/Layouts/ContentBottomNavigation.css') }}" rel="stylesheet" />
 	<script type="text/javascript" src="https://code.jquery.com/jquery-latest.js"></script>
 </head>
@@ -34,6 +36,8 @@
 			</div>
 		</nav>
 	</footer>
+	<script src="{{asset('js/layout/ContentBottom.js')}}"></script>
+	<script src="{{asset('js/loading/Loading.js')}}"></script>
 	<script>
 		$(document).ready(function(){
 			$('#comment-focus').click(function(){

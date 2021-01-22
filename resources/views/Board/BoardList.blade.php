@@ -102,6 +102,19 @@
 			</form>
 		</div>
 	</header>
+	<ul id='notice_list'>
+		@foreach ($notice_response as $notice)
+		<div>
+			<li style="background-color: beige">
+				<a href="{{route('BoardDetail', ['id' => $notice['board_id'], 'group' => $board_group ])}}">
+					<h5>
+						{{ $notice["title"] }}
+					</h5>
+				</a>
+			</li>
+		</div>
+		@endforeach
+	</ul>
 	<ul id="enters">
 		@foreach ($response as $item)
 		<div>

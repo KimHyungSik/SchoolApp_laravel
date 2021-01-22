@@ -1,0 +1,28 @@
+@extends('layouts.BottomNavigation') @section('content')
+<div>
+	<span
+		><a
+			href="#"
+			>자유게시판</a
+		></span
+	>
+	<span
+		><a
+			href="#"
+			>동아리게시판</a
+		></span
+	>
+	<span
+		><a
+			href="#"
+			>건의게시판</a
+		></span
+	>
+	<span
+		><a
+			href="#"
+			>별명게시판</a
+		></span
+	>
+</div>
+@endsection

@@ -76,8 +76,8 @@ class DetailBoardPage extends Controller
 			} else {
 				$userName = $uesr['user_name'];
 			}
-
-			return view('Board.DetailBoard', compact('data', 'student_id', 'my_board', 'board_id', 'is_like', 'comment_datas', 'userName'));
+			$title = "KOREAIT 게시판";
+			return view('Board.DetailBoard', compact('data', 'student_id', 'my_board', 'board_id', 'is_like', 'comment_datas', 'userName', 'title'));
 		} catch (\Exception $e) {
 			return redirect()->back();
 		}

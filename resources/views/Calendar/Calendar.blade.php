@@ -1,49 +1,52 @@
+{{-- 시간표 --}}
 @extends('layouts.BottomNavigation')
-
+@extends('layouts.MenuTitle')
 @section('content')
-<head>
-	<style>
-	table, th, td {
-		border: 1px solid black;
-		border-collapse: collapse;
-		text-align: center;
-		width : 100px;
-		height: 10px;
-	}
-	th, td {
-	}
-	th {
-		text-align: center;
-	}
-	</style>
-	</head>
+<link href="{{ asset('/css/Calendar.css') }}" rel="stylesheet">
 	<body>
-
-	 <h1>OOO의 시간표</h1>
-
-	<table style="width:100%">
-	 <caption>시간표</caption>
-	  	<tr>
-			<th> </th>
-			<th>월</th>
-			<th>화</th>
-			<th>수</th>
-			<th>목</th>
-			<th>금</th>
-	  	</tr>
-		@foreach($time_arr as $index => $time)
-		<tr>
-			<td>{{$time}}</td>
-			@for($i = 0; $i < 5; $i++)
-				@if($temp_row_array[$i][$index] > 0)
-					<td rowspan="{{$temp_row_array[$i][$index]}}">{{$contents_arr[$i][$index]}}</td>
-				@endif
-			@endfor
-		</tr>
-	    @endforeach
-	</table>
-
+		@section('menu-title')
+		@endsection
+	<section>
+		<table class="calendar-table" style="width:100%;" >
+				<tr class="day">
+					<th> </th>
+					<th class="calendar-content">월</th>
+					<th class="calendar-content">화</th>
+					<th class="calendar-content">수</th>
+					<th class="calendar-content">목</th>
+					<th class="calendar-content">금</th>
+				</tr>
+				@for($index = 0; $index < 20; $index++)
+				<tr class="class">
+					@if($index == 0)
+						<td id="calendar-time" rowspan="2">{!!$time_arr[0]!!}</td>
+					@endif
+					@if($index % 2 == 0 && $index != 0)
+						<td id="calendar-time" rowspan="2">{!!$time_arr[$index/2]!!}</td>
+					@endif
+					@for($i = 0; $i < 5; $i++)
+						@if($temp_row_array[$i][$index] > 0)
+							@if($contents_arr[$i][$index] != "")
+								<td id="have-schedule-content" class="calendar-conten schedule-content subject{{$temp_class_array[$i][$index]}}" rowspan="{{$temp_row_array[$i][$index]}}" onclick="tdclick({{$temp_class_array[$i][$index]}})">
+									<span class="show-subject subject-title-{{$temp_class_array[$i][$index]}}">
+										{!!$contents_arr[$i][$index]!!}
+									</span>
+									<span class="border-line-red none-subject subject-description-{{$temp_class_array[$i][$index]}}">
+										{!!$temp_professor_array[$i][$index]!!}</br>
+										{{$temp_classroom_array[$i][$index]}}
+									</span>
+								</td>
+							@else
+								<td class="calendar-content schedule-content subject{{$temp_class_array[$i][$index]}}"  rowspan="{{$temp_row_array[$i][$index]}}">
+									{{$contents_arr[$i][$index]}}
+								</td>
+							@endif
+						@endif
+					@endfor
+				</tr>
+				@endfor
+	</section>
+	<script src="{{asset('js/Calendar/Calendar.js')}}">
+	</script>
 	</body>
-
-
 @endsection

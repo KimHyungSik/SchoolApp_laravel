@@ -1,0 +1,25 @@
+/* 로딩*/
+#loading {
+	height: 100%;
+	width: 100%;
+	left: 0px;
+	position: fixed;
+	_position: absolute;
+	top: 0px;
+	filter: alpha(opacity=50);
+	-moz-opacity: 0.5;
+	opacity: 0.5;
+	text-align: center;
+}
+.loading {
+	background-color: white;
+	z-index: 199;
+}
+#loading_img {
+	position: absolute;
+	height: 35px;
+	top: 50%;
+	left: 50%;
+	z-index: 200;
+	margin: auto;
+}

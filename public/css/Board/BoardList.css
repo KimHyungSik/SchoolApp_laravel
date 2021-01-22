@@ -174,9 +174,13 @@
 	box-shadow: 1px 1px 3px 0px rgb(0 0 0 / 50%);
 }
 /* 자유게시판 글 목록 */
-ul {
-	list-style: none;
+#notice_list {
 	padding: 15rem 0 0 0;
+	margin-bottom: 0;
+}
+ul {
+	padding: 0 0 0 0;
+	list-style: none;
 	margin-bottom: 58px;
 }
 ul div {

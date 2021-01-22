@@ -7,20 +7,81 @@ section {
 	padding: 8rem 0 6rem 0;
 	margin: 0 1rem;
 }
-table {
-	box-shadow: 1px 1px 3px 0px rgb(0 0 0 / 50%);
-}
 th {
 	background-color: #e4e4e4;
 }
 table,
 th,
 td {
-	border: 1px solid black;
+	border: 1px solid rgba(0, 0, 0, 0.5);
 	border-collapse: collapse;
 	text-align: center;
 	word-break: normal;
-	width: 100px;
-	height: 10px;
+	height: 30px;
 	padding: 1px;
+}
+span {
+	word-break: break-all;
+	width: 100%;
+	height: 100%;
+	font-size: medium;
+	font-weight: 600;
+}
+.show-subject {
+	display: flex;
+	width: 100%;
+	height: 100%;
+	align-items: center;
+	justify-content: center;
+}
+.border-line-red {
+	border: 4px solid rgb(255, 0, 0);
+}
+.none-subject {
+	display: none;
+}
+.calendar-table {
+	border: 1px solid rgba(0, 0, 0, 0.5);
+	box-shadow: 1px 1px 3px 0px rgb(0 0 0 / 100%);
+}
+.calendar-content {
+	width: 100px;
+}
+.schedule-content {
+	border: 1px solid rgba(0, 0, 0, 0.2);
+}
+#have-schedule-content-column:focus {
+	background-color: red;
+}
+
+#calendar-time {
+	width: 50px;
+}
+
+.subject1 {
+	background-color: #b2d0ed;
+}
+.subject2 {
+	background-color: #edcdb2;
+}
+.subject3 {
+	background-color: #bcedb2;
+}
+.subject4 {
+	background-color: #e0daa8;
+}
+.subject5 {
+	background-color: #b2eded;
+}
+.subject6 {
+	background-color: #edb2ca;
+}
+.subject7 {
+	background-color: #edb2ed;
+}
+.subject8 {
+	background-color: #b4e0a8;
+}
+.subject9 {
+	background-color: #e0a8a8;
 }

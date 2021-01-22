@@ -12,15 +12,11 @@
 		/>
 		<link href="{{ asset('/css/Notice.css') }}" rel="stylesheet" />
 		<script type="text/javascript" src="https://code.jquery.com/jquery-latest.js"></script>
-
+		@extends('layouts.MenuTitle-Back')
 	</head>
 	<body>
-		<header>
-			<h3 class="notice-title">
-				<a href="#a"><i class="fas fa-arrow-left" style="font-size: 1.2rem;"></i></a>
-				<span>학교 공지사항</span>
-			</h3>
-		</header>
+		@section('menu-title-back')
+		@endsection
 		<section>
 			<h1>{{ $data["title"] }}</h1>
 			<div class="writeday">
@@ -33,45 +29,5 @@
 				{!! $content!!}
 			</div>
 		</section>
-		<section class="comment">
-			<div>
-				<ul id="comment-id">
-					<li>
-						댓글 1
-					</li>
-					<li>
-						댓글 2
-					</li>
-					<li>
-						댓글 3
-					</li>
-					<li>
-						댓글 1
-					</li>
-					<li>
-						댓글 2
-					</li>
-					<li>
-						댓글 3
-					</li>
-					<li>
-						댓글 1
-					</li>
-					<li>
-						댓글 2
-					</li>
-				</ul>
-			</div>
-		</section>
-		<div class="edit-comment">
-			<textarea
-						onkeydown="resize(this)"
-						onkeyup="resize(this)"
-						type="text"
-						name="title"
-						rows="1"
-						placeholder="댓글을 입력하세요."
-					></textarea>
-				</div>
 	</body>
 </html>

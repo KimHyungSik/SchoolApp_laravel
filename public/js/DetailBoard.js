@@ -24,7 +24,7 @@ function create_comment(boardID,studentID, userName){
 		loading.hide();
 	},
 	success: function (result) {
-		add_comment(comment, userName, studentID, result.reply_id, true);
+		add_comment(comment, userName, studentID, result.reply_id, true,result.time_write);
 		$("#write-comment").val("");
 	},
 });
@@ -60,35 +60,45 @@ function more_comment(boardID, studentID, userName){
 			user_id: studentID
 		},
 		success: function (results) {
-			results.forEach(result => add_comment(result.content, userName, studentID, result.reply_id, result.is_mine));
+			results.forEach(result => add_comment(result.content, userName, studentID, result.reply_id, result.is_mine,result.time_write));
 		},
 	});
 	page++;
 }
 
-function add_comment(comment, userName, studentID, reply_id, is_mine){
+
+function add_comment(comment, userName, studentID, reply_id, is_mine, time_write){
 	if(is_mine){
 		$("#comment-id").append(`
 		<li>
-			<h3>
+			<div>
+			${userName}
+			</div>
+			<a
+			type="button"
+			id="comment-trash"
+			data-toggle="modal"
+			data-target="#myComment-delete-modal"
+				><i class="fas fa-trash-alt"></i
+			></a>
+			<div>
 				${comment}
-			</h3>
-			<h6 style="display: inline">
-				${userName} / 0
-			</h6>
-			<button id="delete-comment" onclick="delete_comment(${studentID},${reply_id})">삭제</button>
+			</div>
+			<small>조금 전</small>
 		</li>
 		`);
 	}else{
 		$("#comment-id").append(`
 		<li>
-			<h3>
+			<div>
+			${userName}
+			</div>
+			<div>
 				${comment}
-			</h3>
-			<h6 style="display: inline">
-				${userName} / 0
-			</h6>
+			</div>
+			<small>${time_write}</small>
 		</li>
 		`);
 	}
 }
+

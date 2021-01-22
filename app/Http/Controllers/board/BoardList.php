@@ -24,7 +24,15 @@ class BoardList extends Controller
 		$curl = new CurlController();
 		$response = $curl->curlPost(env('URL_LIST_BOARD'), $data);
 		$search_text = false;
-		return view('Board.BoardList', compact('response', 'search_text', 'board_group'));
+
+		$notice_data =  array(
+			'board_group' => $board_group,
+			'page_num' => 1,
+			'page_size' => 4
+		);
+		$notice_response = $curl->curlPost(env('URL_NOTICE_LIST_BOARD'), $notice_data);
+
+		return view('Board.BoardList', compact('response', 'search_text', 'board_group', 'notice_response'));
 	}
 
 	public function post_index(Request $request)
@@ -41,6 +49,7 @@ class BoardList extends Controller
 
 		$curl = new CurlController();
 		$response = $curl->curlPost(env('URL_LIST_BOARD'), $data);
-		return view('Board.BoardList', compact('response', 'search_text', 'board_group'));
+		$notice_response = [];
+		return view('Board.BoardList', compact('response', 'search_text', 'board_group', 'notice_response'));
 	}
 }
