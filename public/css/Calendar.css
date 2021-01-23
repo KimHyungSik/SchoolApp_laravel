@@ -24,8 +24,7 @@ span {
 	word-break: break-all;
 	width: 100%;
 	height: 100%;
-	font-size: medium;
-	font-weight: 600;
+	padding: 4px;
 }
 .show-subject {
 	display: flex;
@@ -34,9 +33,7 @@ span {
 	align-items: center;
 	justify-content: center;
 }
-.border-line-red {
-	border: 4px solid rgb(255, 0, 0);
-}
+
 .none-subject {
 	display: none;
 }

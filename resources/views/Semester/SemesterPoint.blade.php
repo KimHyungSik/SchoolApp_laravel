@@ -10,20 +10,19 @@
 	<section class="semester-nav">
 		<div class="community-nav-2">
 			<a class="nav2-on" href="#a">성적표</a>
-			<a href="#a">출결</a>
+			<a href="{{route('Attend')}}">출결</a>
 			<a href="#a">강의평가</a>
 		</div>
 	</section>
 	<section>
 		<div class="year-select">
 			<select class="form-select" id="year" onchange="change_()">
-				@foreach ($years as $year)
-					<option value="{{$year}}">{{$year}}학년 1학기</option>
-					<option value="{{$year + 0.5}}">{{$year}}학년 2학기</option>
+				@foreach ($Hakgi_year as $year_index => $year)
+					<option value="{{$year_index+1}}">{{$year}}</option>
 				@endforeach
 			</select>
-
 		</div>
+		<h2 style="display: inline"> 총 취득 학점 : {{$total_point_Hakjum}}</h2>
 		<table>
 			<tr>
 			@foreach ($titles as $item)
@@ -64,8 +63,9 @@
 	<script>
 		function change_(){
 			var year = document.getElementById("year").value;
-			var hakgi = (2 * year) - 1;
-			var Hakgi = ".Hakgi" + hakgi;
+			//var hakgi = (2 * year) - 1;
+			var Hakgi = ".Hakgi" + year;
+			console.log(Hakgi);
 			$(".Hakgi").css("display","none")
 			$(Hakgi).css("display","table-row")
 		}

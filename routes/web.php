@@ -9,6 +9,7 @@ use App\Http\Controllers\board\LikeBoard;
 use App\Http\Controllers\Calendar\MainCalendar;
 use App\Http\Controllers\SemesterPointController;
 use App\Http\Controllers\MainPageContorller;
+use App\Http\Controllers\Attendance\MainAttendanceController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\Logout_;
 use App\Http\Controllers\Preferences\MyProfile;
@@ -42,8 +43,12 @@ Route::get('/Job', function () {
 })->middleware('CheckLoginCookie')->name('Job');
 
 Route::get('/Preferences', function () {
-	return view('Preferences.Preferences');
+	$title = "더보기";
+	return view('Preferences.Preferences', compact(['title']));
 })->middleware('CheckLoginCookie')->name('Preferences');
+
+// 출결확인
+Route::get('/Attend', [MainAttendanceController::class, 'index'])->middleware('CheckLoginCookie')->name('Attend');
 
 //상세 공지사항
 Route::get('/Notice/{id}', [SchoolNoticePage::class, 'index'])->middleware('CheckLoginCookie')->name('Notice');

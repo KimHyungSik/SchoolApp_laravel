@@ -102,14 +102,20 @@
 			</form>
 		</div>
 	</header>
-	<ul id='notice_list'>
+	<ul id='notice-list'>
 		@foreach ($notice_response as $notice)
 		<div>
-			<li style="background-color: beige">
+			<li>
 				<a href="{{route('BoardDetail', ['id' => $notice['board_id'], 'group' => $board_group ])}}">
 					<h5>
-						{{ $notice["title"] }}
+						<div>
+							<i
+								class="fas fa-bullhorn"
+								style="color: rgb(255, 81, 81)"
+							> 공지</i>{{ $notice["title"] }}
+						</div>
 					</h5>
+				c
 				</a>
 			</li>
 		</div>
@@ -123,6 +129,10 @@
 					<h5>
 						{{ $item["title"] }}
 					</h5>
+					<small>{{$item["author"]}}</small>
+					<small>{{$item["time_write"]}}</small>
+					<small>{{$item["like_count"]}}</small>
+					<small>{{$item["readnum"]}}</small>
 				</a>
 			</li>
 		</div>

@@ -21,7 +21,7 @@
 	<ul>
 	@foreach ($response as $item)
 		<li>
-			<a href="{{route('BoardDetail', ['id' => $item['board_id']])}}">
+			<a href="{{route('BoardDetail', ['id' => $item['board_id'], 'group'=>$item['board_group']])}}">
 				{{$item['title']}}
 			</a>
 		</li>

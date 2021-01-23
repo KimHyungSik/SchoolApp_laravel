@@ -40,11 +40,19 @@ class SemesterPointController extends Controller
 			array(),
 			array()
 		);
+		$total_point_Hakjum = 0;
+		$total_avg_point = 0;
+		$Hakgi_year  = array();
 		//성적표 내부 채우기
 		foreach ($response as $Hakgi_index => $Hakgis) {
 			$Subject_count = 0;
 			$total_point[$Hakgi_count][0] = $Hakgis->GetHakgiPoint['avgPoint'];
 			$total_point[$Hakgi_count][1] = $Hakgis->GetHakgiPoint['avgTotalPoint'];
+			$total_point_Hakjum += $Hakgis->GetHakgiPoint['point'];
+			$total_avg_point += $Hakgis->GetHakgiPoint['avgPoint'];
+			if ($Hakgis['hakgi'] != null) {
+				$Hakgi_year[$Hakgi_count] = $Hakgis['hakgi'];
+			}
 			foreach ($Hakgis->List as $List_index => $list) {
 				foreach ($list as $subject_index => $subject) {
 					foreach ($Hakgi_tags as $tag_index => $Hakgi_tag) {
@@ -55,17 +63,16 @@ class SemesterPointController extends Controller
 			}
 			$Hakgi_count++;
 		}
+		$total_avg_point = $total_avg_point / (($Hakgi_count - 1) / 2);
+
 		$curl = new CurlController();
 		$data = array(
 			'user_id' => Cookie::get('studentID')
 		);
 		$user_info = $curl->curlPost(env('URL_USER_INFO'), $data);
+
 		$user_year = $user_info['year'];
-		$years = array();
-		for ($i = 1; $i <= (int)$user_year; $i++) {
-			$years[$i] = $i;
-		}
-		$title = "성적";
-		return view('Semester.SemesterPoint', compact('titles', 'contents', 'years', 'total_point', 'title'));
+		$title = $user_info['user_name'] . "님 성적";
+		return view('Semester.SemesterPoint', compact('titles', 'contents', 'total_point', 'title', 'total_point_Hakjum', 'total_avg_point', 'Hakgi_year'));
 	}
 }

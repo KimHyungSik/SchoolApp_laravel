@@ -7,6 +7,7 @@
 		@section('menu-title')
 		@endsection
 	<section>
+		<small>*터치 시 상세보기가 가능합니다</small>
 		<table class="calendar-table" style="width:100%;" >
 				<tr class="day">
 					<th> </th>
@@ -31,7 +32,7 @@
 									<span class="show-subject subject-title-{{$temp_class_array[$i][$index]}}">
 										{!!$contents_arr[$i][$index]!!}
 									</span>
-									<span class="border-line-red none-subject subject-description-{{$temp_class_array[$i][$index]}}">
+									<span class="none-subject subject-description-{{$temp_class_array[$i][$index]}}">
 										{!!$temp_professor_array[$i][$index]!!}</br>
 										{{$temp_classroom_array[$i][$index]}}
 									</span>

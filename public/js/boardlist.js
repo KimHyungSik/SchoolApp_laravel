@@ -41,7 +41,19 @@ $(this).scroll(function () {
 			success: function (result) {
 				for (var i = 0; i < result.length; i++) {
 					$("#enters").append(
-						`<div><li><a href='/Board/detaildetail/${result[i].board_id}'><h5>${result[i].title}</h5></a></li></div>`
+						`<div>
+							<li>
+								<a href='/Board/detaildetail/${result[i].board_id}'>
+									<h5>
+										${result[i].title}
+									</h5>
+									<small>${result[i]["author"]}</small>
+									<small>${result[i]["time_write"]}</small>
+									<small>${result[i]["like_count"]}</small>
+									<small>${result[i]["readnum"]}</small>
+								</a>
+							</li>
+						</div>`
 					);
 				}
 			},

@@ -17,4 +17,17 @@ class UserInfo extends Controller
 		);
 		return $curl->curlPost($url_id, $data);
 	}
+
+	//현재 로그인 유저 이름 반환
+	function user_name()
+	{
+		$curl = new CurlController();
+		$url_id = env("URL_USER_INFO");
+		$data = array(
+			'user_id' => Cookie::get('studentID')
+		);
+		$response =  $curl->curlPost($url_id, $data);
+
+		return $response['user_name'];
+	}
 }
