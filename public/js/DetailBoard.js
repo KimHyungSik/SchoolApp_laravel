@@ -66,7 +66,6 @@ function more_comment(boardID, studentID, userName){
 	page++;
 }
 
-
 function add_comment(comment, userName, studentID, reply_id, is_mine, time_write){
 	if(is_mine){
 		$("#comment-id").append(`
@@ -88,6 +87,8 @@ function add_comment(comment, userName, studentID, reply_id, is_mine, time_write
 		</li>
 		`);
 	}else{
+		let date = new Date(time_write);
+		let write_date = `${date.getMonth}-${date.getDay} ${date.getHours}:${date.getMinutes}`
 		$("#comment-id").append(`
 		<li>
 			<div>
@@ -96,7 +97,7 @@ function add_comment(comment, userName, studentID, reply_id, is_mine, time_write
 			<div>
 				${comment}
 			</div>
-			<small>${time_write}</small>
+			<small>${write_date}</small>
 		</li>
 		`);
 	}

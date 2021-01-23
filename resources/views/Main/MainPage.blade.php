@@ -37,14 +37,14 @@
 				</div>
 			</header>
 				<ul class="list-group">
-					@foreach($notice_datas as $notice_data)
+					@foreach($notice_datas as $index => $notice_data)
 					<div class="list">
 						<a href="Notice/{{$notice_data['take_idx']}}">
 							<li>
 								<h5>{{$notice_data['title']}}</h5>
 								<p class="date">
-									<span><small>작성일 {{$notice_data['writeday']}}</small></span>
-									<span><small >조회 {{$notice_data['readnum']}}</small></span>
+									<span><small>작성일 : {{$noteic_date[$index]}}</small></span>
+									<span><small >조회 : {{$notice_data['readnum']}}</small></span>
 								</p>
 							</li>
 						</a>

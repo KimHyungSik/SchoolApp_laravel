@@ -103,7 +103,7 @@
 		</div>
 	</header>
 	<ul id='notice-list'>
-		@foreach ($notice_response as $notice)
+		@foreach ($notice_response as $index => $notice)
 		<div>
 			<li>
 				<a href="{{route('BoardDetail', ['id' => $notice['board_id'], 'group' => $board_group ])}}">
@@ -112,27 +112,29 @@
 							<i
 								class="fas fa-bullhorn"
 								style="color: rgb(255, 81, 81)"
-							> 공지</i>{{ $notice["title"] }}
+							> 공지</i>
+							{{ $notice["title"] }}
 						</div>
 					</h5>
-				c
+					작성자 : {{$notice['author']}}
+					작성일: {{$notice_date_list[$index]}}
 				</a>
 			</li>
 		</div>
 		@endforeach
 	</ul>
 	<ul id="enters">
-		@foreach ($response as $item)
+		@foreach ($response as $index => $item)
 		<div>
 			<li>
 				<a href="{{route('BoardDetail', ['id' => $item['board_id'], 'group' => $board_group ])}}">
 					<h5>
 						{{ $item["title"] }}
 					</h5>
-					<small>{{$item["author"]}}</small>
-					<small>{{$item["time_write"]}}</small>
-					<small>{{$item["like_count"]}}</small>
-					<small>{{$item["readnum"]}}</small>
+					<small>작성자 : {{$item["author"]}}</small>
+					<small>작성일 : {{$date_list[$index]}}</small>
+					<small>좋아요 수 : {{$item["like_count"]}}</small>
+					<small>조회수 :{{$item["readnum"]}}</small>
 				</a>
 			</li>
 		</div>

@@ -102,7 +102,7 @@
 					<div>
 						{{ $comment["content"] }}
 					</div>
-					<small>{{ $comment["time_write"] }}</small>
+					<small>{{ date('m-d h:i',strtotime($comment["time_write"])) }}</small>
 				</li>
 
 				{{-- 댓글 삭제 모달 창 띄우기 --}}
@@ -153,7 +153,6 @@
 						</div>
 					</div>
 				</div>
-
 				@endforeach
 			</ul>
 		</div>

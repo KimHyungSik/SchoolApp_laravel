@@ -11,6 +11,12 @@ class MainPageContorller extends Controller
 	{
 		$notice = new SchoolNotice();
 		$notice_datas = $notice->getNotice(1, 20); // 메인 공지사항 제작
-		return view('Main.MainPage', compact('notice_datas'));
+		$notice_date = array();
+		foreach ($notice_datas as $index => $notice_data) {
+			$temp = explode('오', $notice_data['writeday']);
+			$noteic_date[$index] = $temp[0];
+		}
+
+		return view('Main.MainPage', compact('notice_datas', 'noteic_date'));
 	}
 }

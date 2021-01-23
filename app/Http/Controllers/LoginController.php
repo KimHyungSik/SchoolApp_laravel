@@ -47,7 +47,6 @@ class LoginController extends Controller
 		}
 
 		Cookie::queue(Cookie::forget('studentID_delete'));
-		$this->log_login($request, $student_id, $response);
 		//$this->Fbtok($student_id);
 		return redirect()->route('MainPage');
 	}
@@ -59,7 +58,6 @@ class LoginController extends Controller
 		if ($studentID_save) {
 			Cookie::queue(Cookie::make('studentID',  $studentID_save, 60));
 			Cookie::queue(Cookie::forget('studentID_save'));
-			$this->log_login($request, $studentID_save);
 			return redirect()->route('MainPage');
 		}
 		return redirect()->route('default', ['error' => true]);
