@@ -40,13 +40,13 @@ class LoginController extends Controller
 		//로그인 성공시 쿠기 생성
 		Cookie::queue(Cookie::make('studentID', $student_id, 60));
 		Cookie::queue(Cookie::make('studentID_temp', $student_id, 1));
-
 		//자동로그인 확인
 		if ($request->auto_Login) {
 			Cookie::queue(Cookie::make('studentID_saveServer', $student_id, 60));
 		}
 
 		Cookie::queue(Cookie::forget('studentID_delete'));
+
 		//$this->Fbtok($student_id);
 		return redirect()->route('MainPage');
 	}
@@ -55,10 +55,13 @@ class LoginController extends Controller
 	{
 		$studentID_save = Cookie::get('studentID_save');
 
-		if ($studentID_save) {
+		try {
 			Cookie::queue(Cookie::make('studentID',  $studentID_save, 60));
 			Cookie::queue(Cookie::forget('studentID_save'));
+
 			return redirect()->route('MainPage');
+		} catch (\Throwable $th) {
+			Log::error($th);
 		}
 		return redirect()->route('default', ['error' => true]);
 	}

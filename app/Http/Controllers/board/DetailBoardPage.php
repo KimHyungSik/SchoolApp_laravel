@@ -77,6 +77,13 @@ class DetailBoardPage extends Controller
 				$userName = $uesr['user_name'];
 			}
 			$title = "KOREAIT 게시판";
+
+			//조회수 상승
+			$views_data = array(
+				'board_id' => $board_id,
+			);
+			$curl->curlPost(env('URL_VIEWS_BOARD'), $views_data);
+
 			return view('Board.DetailBoard', compact('data', 'student_id', 'my_board', 'board_id', 'is_like', 'comment_datas', 'userName', 'title'));
 		} catch (\Exception $e) {
 			return redirect()->back();

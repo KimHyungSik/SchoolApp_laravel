@@ -22,7 +22,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
 	return view('LoginPage', ['error' => false]);
 })->middleware('LoginCookie')->name('default');
-
 Route::fallback(function () {
 	return view('LoginPage', ['error' => false]);
 })->middleware('LoginCookie')->name('default');
