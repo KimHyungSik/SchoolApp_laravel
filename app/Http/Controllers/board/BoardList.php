@@ -55,8 +55,8 @@ class BoardList extends Controller
 		$response = $curl->curlPost(env('URL_LIST_BOARD'), $data);
 		//검색시 공지 사항 제외
 		$notice_response = [];
-
-		return view('Board.BoardList', compact('response', 'search_text', 'board_group', 'notice_response'));
+		$date_list = $this->format_date($response);
+		return view('Board.BoardList', compact('response', 'search_text', 'board_group', 'notice_response', 'date_list'));
 	}
 
 	function format_date($date_list)

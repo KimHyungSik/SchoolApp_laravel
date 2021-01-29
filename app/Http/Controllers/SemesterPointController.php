@@ -31,12 +31,9 @@ class SemesterPointController extends Controller
 				array(),
 			)
 		);
-		$Hakgi_count = 0;
-		$Subject_count = 0;
-		$test = array(
-			array()
-		);
-		$total_point = array(
+		$Hakgi_count = 0;		//학기 세기
+		$Subject_count = 0;     //과목수 세기
+		$total_point = array(	//총학점 계산
 			array(),
 			array()
 		);
@@ -65,6 +62,7 @@ class SemesterPointController extends Controller
 		}
 		$total_avg_point = $total_avg_point / (($Hakgi_count - 1) / 2);
 
+		//학년 가져오기
 		$curl = new CurlController();
 		$data = array(
 			'user_id' => Cookie::get('studentID')
@@ -73,6 +71,6 @@ class SemesterPointController extends Controller
 
 		$user_year = $user_info['year'];
 		$title = $user_info['user_name'] . "님 성적";
-		return view('Semester.SemesterPoint', compact('titles', 'contents', 'total_point', 'title', 'total_point_Hakjum', 'total_avg_point', 'Hakgi_year'));
+		return view('Semester.SemesterPoint', compact('titles', 'contents', 'total_point', 'title', 'total_point_Hakjum', 'Hakgi_year'));
 	}
 }

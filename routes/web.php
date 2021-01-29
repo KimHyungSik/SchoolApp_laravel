@@ -10,6 +10,7 @@ use App\Http\Controllers\Calendar\MainCalendar;
 use App\Http\Controllers\SemesterPointController;
 use App\Http\Controllers\MainPageContorller;
 use App\Http\Controllers\Attendance\MainAttendanceController;
+use App\Http\Controllers\Hakbu\HakbuBoardList;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\Logout_;
 use App\Http\Controllers\Preferences\MyProfile;
@@ -34,7 +35,10 @@ Route::get('/Main',  [MainPageContorller::class, 'index'])->middleware('CheckLog
 Route::get('/Calendar', [MainCalendar::class, 'index'])->middleware('CheckLoginCookie')->name('Calendar');
 
 //학기 점수 확인 class 호출
-Route::get('/SemesterPoint', [SemesterPointController::class, 'index'])->middleware('CheckLoginCookie')->name('SemesterPoint');
+Route::get('/Haksa/SemesterPoint', [SemesterPointController::class, 'index'])->middleware('CheckLoginCookie')->name('SemesterPoint');
+
+// 출결확인
+Route::get('/Haksa/Attend', [MainAttendanceController::class, 'index'])->middleware('CheckLoginCookie')->name('Attend');
 
 //일자리
 Route::get('/Job', function () {
@@ -47,8 +51,6 @@ Route::get('/Preferences', function () {
 	return view('Preferences.Preferences', compact(['title']));
 })->middleware('CheckLoginCookie')->name('Preferences');
 
-// 출결확인
-Route::get('/Attend', [MainAttendanceController::class, 'index'])->middleware('CheckLoginCookie')->name('Attend');
 
 //상세 공지사항
 Route::get('/Notice/{id}', [SchoolNoticePage::class, 'index'])->middleware('CheckLoginCookie')->name('Notice');
@@ -66,6 +68,9 @@ Route::get('/Board/MyBoard', [MyBoardList::class, 'get_index'])->name('MyBoardLi
 Route::post('/Board/MyBoard', [MyBoardList::class, 'post_index'])->name('MyBoardListPOST');
 Route::get('/Board/likeBoard/{boardid}', [LikeBoard::class, 'index'])->name('LikePost');
 
+//학부
+Route::get('/Board/Hakbu/list/{major}', [HakbuBoardList::class, 'index'])->middleware('CheckLoginCookie')->name('HakbuBoardList');
+Route::post('/Board/Hakbu/list/{major}', [HakbuBoardList::class, 'post_index'])->middleware('CheckLoginCookie')->name('HakbuBoardListPOST');
 //더보기
 Route::get('/Preferences/MyProfile', [MyProfile::class, 'index'])->middleware('CheckLoginCookie')->name('MyProFile');
 

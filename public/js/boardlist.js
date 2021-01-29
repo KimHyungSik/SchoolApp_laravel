@@ -56,7 +56,7 @@ $(this).scroll(function () {
 					$("#enters").append(
 						`<div>
 							<li>
-								<a href='/Board/detaildetail/${result[i].board_id}'>
+								<a href='/Board/detail/${result[i].board_id}/${getParam("group")}'>
 									<h5>
 										${result[i].title}
 									</h5>

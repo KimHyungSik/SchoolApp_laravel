@@ -6,7 +6,7 @@
             name="viewport"
             content="width=device-width, initial-scale=1.0, minimum-scale=1.0,maximum-scale=1.0"
         />
-        <link rel="stylesheet" type="text/css" href="{{asset('css/Login.css')}}"" />
+        <link rel="stylesheet" type="text/css" href="css/Login.css" />
 		<link rel="stylesheet"
 		      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"/>
         <link rel="stylesheet"
@@ -62,12 +62,11 @@
                             >
                         </div>
                         <div>
-                            <input
+                            <button
 								type="submit"
                                 class="btn btn-primary"
 								id="loginButton"
-								value="로그인"
-                            />
+                            >로그인</button>
                         </div>
                     </form>
                 </div>
@@ -131,7 +130,7 @@
 										name="inputValue"
 										maxlength="6"
 									/>
-									- <input type="password" id="jumin2" maxlength="7"/>
+									- <input type="tel" id="jumin2" maxlength="7"/>
 									<input
 										type="hidden"
 										id="juminE"
@@ -141,7 +140,7 @@
 								</form>
 						</div>
 
-                        <!-- 학번 검색 결과 -->
+                        <!-- 비밀번호 초기화 결과 -->
                         <div class="modal-footer">
                             <button
                                 type="button"
@@ -264,11 +263,11 @@
                 </div>
             </div>
 		</main>
-		<script type="text/javascript" src="{{asset('js/login.js')}}"></script>
 		@if($error == true)
 		<script>
 			errorMessage();
 		</script>
 		@endif
-	</body>
+		<script type="text/javascript" src="js/login.js"></script>
+    </body>
 </html>

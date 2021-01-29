@@ -34,16 +34,17 @@
 		<div>학과<span>{{ $response["depart"] }}</span></div>
 		<div>학년<span>{{ $response["year"] }}</span></div>
 	</section>
-
+	<a href="{{ route('LogOut') }}">
 		<div class="logout">
 			<button
 				href="{{ route('LogOut') }}"
 				type="button"
 				class="btn btn-secondary btn-lg"
 			>
-				<a href="{{ route('LogOut') }}">로그아웃</a>
+			로그아웃
 			</button>
 		</div>
+	</a>
 	<script>
 		function post_nickname(studentID) {
 			$.ajax({
