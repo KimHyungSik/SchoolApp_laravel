@@ -19,8 +19,9 @@ class WritingPage extends Controller
 		try {
 			$url_id = env("URL_WRITEING_BOARD");
 			$studentID = Cookie::get('studentID');
+			$board_group = $request->board_group;
 			$data = array(
-				'board_group' => $request->borad_group,
+				'board_group' => $board_group,
 				'user_id' => $studentID,
 				'board_title' => $request->title,
 				'board_content' => $request->content,
@@ -30,9 +31,9 @@ class WritingPage extends Controller
 
 			$curl = new CurlController();
 			$response = $curl->curlPost($url_id, $data);
-			return redirect()->route('BoardDetail', ['id' => $response['board_id']]);
+			return redirect()->route('BoardDetail', ['id' => $response['board_id'], 'group' => $board_group]);
 		} catch (\Exception $e) {
-			return 'Error';
+			return view('errors.ErrorPage');
 		}
 	}
 }

@@ -103,5 +103,9 @@
 		</div>
 		@endforeach
 	</ul>
+	<script>
+		var major = '{!!$major!!}';
+	</script>
+	<script src="{{asset('js/HakbuBoardList.js')}}"></script>
 </body>
 @endsection

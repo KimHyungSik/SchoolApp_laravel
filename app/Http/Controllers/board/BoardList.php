@@ -66,7 +66,7 @@ class BoardList extends Controller
 		foreach ($date_list as $index => $date) {
 			$split_date = explode(' ', $date['time_write']);
 			if (date('Y-m-d', strtotime($split_date[0])) == $today) {
-				$format_date_list[$index] = date('h:i', strtotime($split_date[1]));
+				$format_date_list[$index] = date('H:i', strtotime($split_date[1]));
 			} else {
 				$format_date_list[$index] = date('m-d', strtotime($split_date[0]));
 			}

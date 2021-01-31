@@ -37,12 +37,13 @@
 					</h3>
 				</div>
 				<div class="selectbox">
-					<select id="board-select" name="borad_group">
+					<select id="board-select" name="board_group">
 						<option select>게시판을 선택하세요.</option>
 						<option value="901">자유 게시판</option>
 						<option value="904">동아리 게시판</option>
 						<option value="902">건의 게시판</option>
 						<option value="903">별명 게시판</option>
+						<option value="701">학부 게시판</option>
 					</select>
 				</div>
 				<div class="board-title">

@@ -3,19 +3,24 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Mockery\Expectation;
 
 class SchoolNoticePage extends Controller
 {
 	public function index(Request $request)
 	{
-		//상세 공지사항 주소
-		$url_id = env("URL_NEWS_VIEW", false) . $request['id'];
-		$curl = new CurlController();
-		$response = $curl->curlGet($url_id);
+		try {
+			//상세 공지사항 주소
+			$url_id = env("URL_NEWS_VIEW", false) . $request['id'];
+			$curl = new CurlController();
+			$response = $curl->curlGet($url_id);
 
-		$data = $response[0];
-		$content = $this->xmlentity_decode($data['content']);
-		return view('Notice.SchoolNotice', compact('data', 'content'));
+			$data = $response[0];
+			$content = $this->xmlentity_decode($data['content']);
+			return view('Notice.SchoolNotice', compact('data', 'content'));
+		} catch (Expectation $e) {
+			return view('errors.ErrorPage');
+		}
 	}
 
 	function xmlentity_decode($input)

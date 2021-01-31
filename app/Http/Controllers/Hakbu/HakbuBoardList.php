@@ -28,10 +28,10 @@ class HakbuBoardList extends Controller
 			$board_major_group = 4;
 		}
 
-		$mojor_split = explode('스쿨', $majorList[(int)$board_major_group - 1]['sosokName']);
-
+		$mojar_split = explode('스쿨', $majorList[(int)$board_major_group - 1]['sosokName']);
+		$major = $mojar_split[0];
 		$hakbu_list_data = array(
-			'college' => $mojor_split[0],
+			'college' => $major,
 			'page_num' => 1,
 			'page_size' => 10
 		);
@@ -40,7 +40,7 @@ class HakbuBoardList extends Controller
 		//날짜 포멧
 		$Date_Fomat = new BoardList();
 		$date_list = $Date_Fomat->format_date($hakbu_list_response);
-		return view('Hakbu.HakbuBoardList', compact('majorList', 'search_text', 'hakbu_list_response', 'date_list'));
+		return view('Hakbu.HakbuBoardList', compact('majorList', 'search_text', 'hakbu_list_response', 'date_list', 'major'));
 	}
 
 	public function post_index(Request $request)
@@ -60,9 +60,9 @@ class HakbuBoardList extends Controller
 
 		//학부 '스쿨' 문자열 제거
 		$mojor_split = explode('스쿨', $majorList[(int)$board_major_group]['sosokName']);
-
+		$major = $mojor_split[0];
 		$hakbu_list_data = array(
-			'college' => $mojor_split[0],
+			'college' => $major,
 			'page_num' => 1,
 			'page_size' => 10
 		);
@@ -71,6 +71,6 @@ class HakbuBoardList extends Controller
 		//날짜 포멧
 		$Date_Fomat = new BoardList();
 		$date_list = $Date_Fomat->format_date($hakbu_list_response);
-		return view('Hakbu.HakbuBoardList', compact('majorList', 'search_text', 'hakbu_list_response', 'date_list'));
+		return view('Hakbu.HakbuBoardList', compact('majorList', 'search_text', 'hakbu_list_response', 'date_list', 'major'));
 	}
 }
