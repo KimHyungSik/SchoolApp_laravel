@@ -17,29 +17,78 @@
 		<div class="title" role="banner">
 			<h1 style="margin-bottom: 0px" class="menu-title">
 				<span>KOREAIT 커뮤니티</span>
-				<a href="{{ route('Writing') }}"
-					><i class="fas fa-edit" style="font-size: 1.2rem"></i
+				<a href="{{ route('Writing') }}">
+					<i class="fas fa-edit" style="font-size: 1rem"></i
+				></a>
+				<a
+					href="#searchCollapse"
+					data-toggle="collapse"
+					role="button"
+					aria-expanded="false"
+					aria-controls="searchCollapse"
+					><i class="fas fa-search" style="font-size: 1rem"></i
 				></a>
 			</h1>
-
 			<nav>
 				<div class="community-nav-1">
-					<a class="nav1-on" href="#a">공지 사항</a>
+					<a href="{{route('HakbuBoardList', ['major'=>'E'])}}"
+						>학부게시판</a
+					>
+					<a class="nav1-on" href="{{ route('MainPage') }}">HOME</a>
 					<a href="{{route('BoardList', ['page'=>1, 'group'=>901])}}"
 						>학생 마당</a
 					>
 				</div>
 			</nav>
-			<nav>
-				<div class="community-nav-2">
-					<a class="nav2-on" href="#a">학교</a>
-					<a href="#a">교수님</a>
-					<a href="{{route('HakbuBoardList', ['major'=>'B'])}}">학과</a>
-				</div>
-			</nav>
 		</div>
 	</header>
 	<ul class="list-group">
+		{{-- <div class="collapse" id="searchCollapse">
+			<form
+				id="list-search-form"
+				action="/Board/list/1/{{ $board_group }}"
+				method="POST"
+			>
+				@csrf
+				<div class="searchbox">
+					<a
+						href="#searchCollapse"
+						data-toggle="collapse"
+						role="button"
+						aria-expanded="false"
+						aria-controls="searchCollapse"
+						id="search-close"
+					>
+						<i class="fas fa-times" style="font-size: 1rem"></i>
+					</a>
+					<select
+						name="search_key"
+						class="form-select"
+						id="title-content-search"
+					>
+						<option value="title">제목</option>
+						<option value="cotent">내용</option>
+						<option value="title+content">제목+내용</option>
+					</select>
+					@if ($search_text)
+					<input
+						class="form-control"
+						type="search"
+						placeholder="검색어를 입력하세요."
+						name="search_text"
+						value="{{ $search_text }}"
+					/>
+					@else
+					<input
+						class="form-control"
+						type="search"
+						placeholder="검색어를 입력하세요."
+						name="search_text"
+					/>
+					@endif
+				</div>
+			</form>
+		</div> --}}
 		@foreach($notice_datas as $notice_data)
 		<div class="list">
 			<a href="Notice/{{ $notice_data['take_idx'] }}">

@@ -165,10 +165,10 @@ function loginCheck() {
 	}
 }
 
-function errorMessage(){
+function errorMessage(titleText, bodyText){
 	Swal.fire({
 		icon: "warning",
-		title: "로그인 실패",
-		text: "학번 또는 비밀번호를 확인해주세요."
+		title: titleText,
+		text: bodyText
 	});
 }

@@ -20,16 +20,14 @@
 			<h1 style="margin-bottom: 0px" class="menu-title">
 				<span>KOREAIT 커뮤니티</span>
 				<a href="{{ route('Writing') }}"
-					><i class="fas fa-edit" style="font-size: 1.2rem"></i
+					><i class="fas fa-edit" style="font-size: 1rem"></i
 				></a>
 			</h1>
-
 			<nav>
 				<div class="community-nav-1">
-					<a href="{{ route('MainPage') }}">공지 사항</a>
-					<a
-						class="nav1-on"
-						href="{{route('BoardList', ['page'=>1, 'group'=>901])}}"
+					<a href="{{route('HakbuBoardList', ['major'=>'B'])}}">학부게시판</a>
+					<a href="{{route('MainPage')}}">HOME</a>
+					<a href="{{route('BoardList', ['page'=>1, 'group'=>901])}}"
 						>학생 마당</a
 					>
 				</div>
@@ -43,7 +41,7 @@
 						@foreach ($majorList as $item)
 						<span
 						><a
-							href="{{route('HakbuBoardListPOST', ['major' => $item['sosokCode']])}}"
+							href="{{route('HakbuBoardList', ['major' => $item['sosokCode']])}}"
 							>{{$item['sosokName']}}</a
 						></span
 						>
@@ -107,5 +105,6 @@
 		var major = '{!!$major!!}';
 	</script>
 	<script src="{{asset('js/HakbuBoardList.js')}}"></script>
+	<script src="{{ asset('js/boardlist.js') }}"></script>
 </body>
 @endsection

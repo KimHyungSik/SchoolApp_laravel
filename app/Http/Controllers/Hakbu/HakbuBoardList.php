@@ -24,8 +24,11 @@ class HakbuBoardList extends Controller
 
 		//초기 학부 리스트 가져오기
 		$hakbu_list_uri_id = env('URL_LIST_HAKBU_BOARD');
-		if ($board_major_group == 'B') {
+		if ($board_major_group == 'E') {
 			$board_major_group = 4;
+		}
+		if ($board_major_group == 'F') {
+			$board_major_group = 3;
 		}
 
 		$mojar_split = explode('스쿨', $majorList[(int)$board_major_group - 1]['sosokName']);

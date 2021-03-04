@@ -75,7 +75,7 @@
 			</div>
 		</div>
 		<div class="content">
-			<h3>{!!$data['content']!!}</h3>
+			<h3>{{$data['content']}}</h3>
 		</div>
 	</section>
 	<div class="line"></div>

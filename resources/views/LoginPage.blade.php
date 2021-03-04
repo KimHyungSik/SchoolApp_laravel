@@ -109,57 +109,55 @@
                             </h4>
 						</div>
 						<div id="modalBody">
-							<label for="resetStudentID">
-								학번을 입력하세요.
-							</label>
-								<form class="reset-student-id">
-									<input
-										type="tel"
-										id="resetStudentID"
-										name="inputValue"
-										maxlength="8"
-									/>
-								</form>
-								<label for="reset-social-number">
-									주민번호를 입력하세요.
+							<form name="resetPW" action="{{route('ResetPW')}}" method="POST">
+								@csrf
+								<label for="inputStudentID">
+									학번을 입력하세요. :
 								</label>
-								<form class="reset-social-number">
-									<input
-										type="tel"
-										id="jumin1"
-										name="inputValue"
-										maxlength="6"
-									/>
-									- <input type="tel" id="jumin2" maxlength="7"/>
-									<input
-										type="hidden"
-										id="juminE"
-										name="inputValue"
-										maxlength="7"
-									/>
-								</form>
-						</div>
+										<input
+											type="tel"
+											id="inputStudentID"
+											name="resetStudentID"
+											maxlength="8"
+										/>
+									<label for="reset-social-number">
+										주민번호를 입력하세요.
+									</label>
+									<div class="reset-social-number">
+										<input
+											type="tel"
+											id="jumin1"
+											name="inputSocialNumFirst"
+											maxlength="6"
+										/>
+										-
+										<input
+											id="juminE"
+											type="password"
+											name="inputSocialNumSecond"
+											maxlength="7"
+										/>
+									</div>
+							</div>
 
-                        <!-- 비밀번호 초기화 결과 -->
-                        <div class="modal-footer">
-                            <button
-                                type="button"
-                                class="btn btn-secondary"
-                                data-dismiss="modal"
-                            >
-                                닫기
-                            </button>
-                            <form>
-                                <button
-                                    type="button"
-                                    class="btn btn-primary"
-                                    data-toggle="modal"
-                                    href="#resetSuccess"
-                                >
-                                    초기화
-                                </button>
-                            </form>
-                        </div>
+							<!-- 비밀번호 초기화 결과 -->
+							<div class="modal-footer">
+								<button
+									type="button"
+									class="btn btn-secondary"
+									data-dismiss="modal"
+								>
+									닫기
+								</button>
+									<button
+										type="submit"
+										class="btn btn-primary"
+										data-toggle="modal"
+									>
+										초기화
+									</button>
+							</div>
+						</form>
                         <div
                             class="modal fade"
                             id="resetSuccess"
@@ -263,11 +261,11 @@
                 </div>
             </div>
 		</main>
+		<script type="text/javascript" src="js/login.js"></script>
 		@if($error == true)
 		<script>
-			errorMessage();
+			errorMessage( "{{$errorTitle}}", "{{$errorBody}}" );
 		</script>
 		@endif
-		<script type="text/javascript" src="js/login.js"></script>
     </body>
 </html>

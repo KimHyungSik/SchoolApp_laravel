@@ -17,7 +17,8 @@ class SchoolNoticePage extends Controller
 
 			$data = $response[0];
 			$content = $this->xmlentity_decode($data['content']);
-			return view('Notice.SchoolNotice', compact('data', 'content'));
+			$title = "공지 사항";
+			return view('Notice.SchoolNotice', compact('data', 'content', 'title'));
 		} catch (Expectation $e) {
 			return view('errors.ErrorPage');
 		}

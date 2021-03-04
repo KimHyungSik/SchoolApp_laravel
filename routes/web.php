@@ -18,6 +18,7 @@ use App\Http\Controllers\SchoolNoticePage;
 use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\LoginPage\ResetPW;
 
 
 Route::get('/', function () {
@@ -27,7 +28,8 @@ Route::fallback(function () {
 	return view('LoginPage', ['error' => false]);
 })->middleware('LoginCookie')->name('default');
 
-
+// 비밀번호 초기화
+Route::post('/ResetPassword', [ResetPW::class, 'index'])->name('ResetPW');
 //로그인 후 제일 처음 페이지
 Route::get('/Main',  [MainPageContorller::class, 'index'])->middleware('CheckLoginCookie')->name('MainPage');
 
@@ -69,8 +71,9 @@ Route::post('/Board/MyBoard', [MyBoardList::class, 'post_index'])->name('MyBoard
 Route::get('/Board/likeBoard/{boardid}', [LikeBoard::class, 'index'])->name('LikePost');
 
 //학부
-Route::get('/Board/Hakbu/list/{major}', [HakbuBoardList::class, 'index'])->middleware('CheckLoginCookie')->name('HakbuBoardList');
-Route::post('/Board/Hakbu/list/{major}', [HakbuBoardList::class, 'post_index'])->middleware('CheckLoginCookie')->name('HakbuBoardListPOST');
+Route::get('/Main/Hakbu/list/{major}', [HakbuBoardList::class, 'index'])->middleware('CheckLoginCookie')->name('HakbuBoardList');
+Route::post('/Main/Hakbu//list/{major}', [HakbuBoardList::class, 'post_index'])->middleware('CheckLoginCookie')->name('HakbuBoardListPOST');
+
 //더보기
 Route::get('/Preferences/MyProfile', [MyProfile::class, 'index'])->middleware('CheckLoginCookie')->name('MyProFile');
 
