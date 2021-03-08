@@ -3,11 +3,13 @@
 @section('content')
 <link href="{{ asset('/css/Community.css') }}" rel="stylesheet">
 <link href="{{ asset('/css/SemesterPoint.css') }}" rel="stylesheet">
+<link href="{{ asset('css/Eval/EvalList.css')}}" rel="stylesheet">
 <style>
 	.contour{
 		border-bottom: 1px solid black;
 	}
 </style>
+
 @section('menu-title')
 @endsection
 <section class="semester-nav">
@@ -17,12 +19,21 @@
 		<a href="{{route('EvalList')}}">강의평가</a>
 	</div>
 </section>
-	@foreach ($attend as $item)
-	<div class="contour">
-		<h2> 날짜 : {{$item['day']}}</h2>
-		<h3> 과목 : {{$item['subjectName']}}</h3>
-		<h4> 구분 : {{$item['reason']}}</h4>
-		<h5> 횟수 : {{$item['count']}}</h5>
-	</div>
-	@endforeach
+	@if($withinPeriod)
+		@foreach ($evalList as $item)
+			<div id="eval_list_item">
+				<div>
+					<h2>수업명 : {{$item['subjectName']}}</h2>
+					<h4>교수님 : {{$item['name']}}</h4>
+				</div>
+				@if ($item['eval_status']=="N")
+					<button id="btn_eval">강의평가 하기</button>
+				@else
+					<div id="check_eval_staut">강의 평가를 완료하였습니다</div>
+				@endif
+			</div>
+		@endforeach
+	@else
+			<h1>현재 강의평가 기간이 아닙니다.</h1>
+	@endif
 @endsection

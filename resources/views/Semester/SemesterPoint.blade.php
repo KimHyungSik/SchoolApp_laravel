@@ -1,7 +1,7 @@
 @extends('layouts.BottomNavigation')
 @extends('layouts.MenuTitle')
 @section('content')
-<link href="{{ asset('/css/SemesterPoint.css') }}" rel="stylesheet">
+<link href="{{ asset('css/Haksa/SemesterPoint.css') }}" rel="stylesheet">
 <link href="{{ asset('/css/Community.css') }}" rel="stylesheet">
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <body>
@@ -11,17 +11,17 @@
 		<div class="community-nav-2">
 			<a class="nav2-on" href="#a">성적표</a>
 			<a href="{{route('Attend')}}">출결</a>
-			<a href="#a">강의평가</a>
+			<a href="{{route('EvalList')}}">강의평가</a>
 		</div>
 	</section>
 	<section>
-		<div class="year-select">
+		{{-- <div class="year-select">
 			<select class="form-select" id="year" onchange="change_()">
 				@foreach ($Hakgi_year as $year_index => $year)
 					<option value="{{$year_index+1}}">{{$year}}</option>
 				@endforeach
 			</select>
-		</div>
+		</div> --}}
 		<h2 style="display: inline"> 총 취득 학점 : {{$total_point_Hakjum}}</h2>
 		<table>
 			<tr>

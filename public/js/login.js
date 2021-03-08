@@ -159,7 +159,7 @@ function loginCheck() {
 		(!studentID || studentPassword) &&
 		(studentID || !studentPassword)
 	) {
-		errorMessage();
+		errorMessage("로그인 오류", "빈 공간을 입력 할 수 없습니다.");
 	} else {
 		loginForm.submit();
 	}

@@ -1,0 +1,46 @@
+body section {
+	padding-top: 2rem;
+}
+.semester-nav {
+	padding-top: 5.1rem;
+	position: fixed;
+	width: 100%;
+}
+.attend-grid {
+	width: 100%;
+	padding: 2rem 1rem 5rem 1rem;
+	display: grid;
+	grid-gap: 14px;
+	grid-template-columns: 1fr 1fr 1fr;
+}
+.attend-grid div {
+	text-align: center;
+	height: 10rem;
+	border: 1px solid;
+	box-shadow: 3px 3px 3px 0px rgb(0 0 0 / 50%);
+	background-color: #f3f3f3;
+}
+.attend-grid div p {
+	margin: 0;
+	padding: 1.4rem 0.2rem 0 0.2rem;
+	font-size: smaller;
+}
+#attend-date {
+	padding: 0.3rem 0.2rem 0.2rem 0.2rem;
+	border-bottom: 1px solid #000;
+	background-color: #8283a7;
+	color: #fff;
+	font-size: 14px;
+}
+#attend-reason {
+	color: red;
+	font-weight: bold;
+}
+h2 {
+	padding: 9rem 1rem 0 1rem;
+	text-align: center;
+}
+.reason-count {
+	display: flex;
+	justify-content: space-around;
+}

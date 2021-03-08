@@ -1,3 +1,4 @@
+{{-- 게시판 하단 네비바 --}}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,12 +20,12 @@
 <body>
 	@yield('notice-board-content')
 	<footer>
-		<nav>
+		<nav class="btn-fixed-bottom" style="display:flex">
 			<div>
 				@if ($is_like)
-					<a href="javascript:void(0)" style="color: blue" onclick="LikeBoard({{$board_id}},{{$student_id}})">좋아요</a>
+					<a href="javascript:void(0)" style="color: blue" onclick="LikeBoard({{$board_id}},{{$student_id}})"><i class="far fa-thumbs-up"></i> 좋아요</a>
 				@else
-					<a href="javascript:void(0)" onclick="LikeBoard({{$board_id}},{{$student_id}})">좋아요</a>
+					<a href="javascript:void(0)" onclick="LikeBoard({{$board_id}},{{$student_id}})"><i class="far fa-thumbs-up"></i> 좋아요</a>
 				@endif
 
 				<span>|</span>
@@ -32,25 +33,26 @@
 					><i class="far fa-comment-alt"></i> 댓글</a
 				>
 				<span>|</span>
-				<a href="#a"><i class="fas fa-pencil-alt"></i> 댓글작성</a>
+				<a href="javascript:void(0)" id="write"><i class="fas fa-pencil-alt"></i> 댓글작성</a>
 			</div>
 		</nav>
 	</footer>
 	<script src="{{asset('js/layout/ContentBottom.js')}}"></script>
 	<script src="{{asset('js/loading/Loading.js')}}"></script>
+
 	<script>
-		$(document).ready(function(){
-			$('#comment-focus').click(function(){
-				var offset = $('#comment-id').offset();
-				$('html').animate({scrollTop : offset.top}, 500);
-			});
+		var writebtn = document.getElementById('write');
+		writebtn.addEventListener('click', function() {
+			$(".btn-fixed-bottom").css("display","none");
+			$("#edit-comment").css("display","flex");
 		});
 	</script>
+
 	<script>
 		$(document).ready(function () {
 			$("#comment-focus").click(function () {
 				var offset = $("#comment-id").offset();
-				$("html").animate({ scrollTop: offset.top }, 500);
+				$("html").animate({ scrollTop: offset.top }, 5);
 			});
 		});
 

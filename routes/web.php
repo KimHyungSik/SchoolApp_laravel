@@ -19,7 +19,8 @@ use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginPage\ResetPW;
-
+use App\Http\Controllers\Evaluation\EvalViewController;
+use App\Http\Controllers\MiddleRestApi\RestPassword;
 
 Route::get('/', function () {
 	return view('LoginPage', ['error' => false]);
@@ -83,3 +84,9 @@ Route::get('/LoginCheck', [LoginController::class, 'autoLogin'])->name('_LoginCo
 
 //로그아웃
 Route::get('/LogOut', Logout_::class)->middleware('CheckLoginCookie')->name('LogOut');
+
+// 강의평가 리스트
+Route::get('/Evaluation/List', [EvalViewController::class, 'index'])->name('EvalList');
+
+// REST API
+Route::post('/rest/api/reset/password', [RestPassword::class, 'index'])->name("RestPasswordApi");

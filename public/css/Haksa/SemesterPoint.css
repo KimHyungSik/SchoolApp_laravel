@@ -1,0 +1,28 @@
+body section {
+	padding-top: 2rem;
+}
+.semester-nav {
+	padding-top: 5.1rem;
+}
+.year-select {
+	padding: 0 6rem;
+	padding-bottom: 2rem;
+}
+.year-select #year {
+	padding-left: 3rem;
+}
+.year-select #year option {
+	text-align: center;
+}
+
+table {
+	width: 100%;
+}
+table,
+th,
+td {
+	border: 1px solid black;
+	border-collapse: collapse;
+	text-align: center;
+	height: 10px;
+}

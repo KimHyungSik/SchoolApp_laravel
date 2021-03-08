@@ -1,0 +1,11 @@
+#eval_list_item {
+	margin-bottom: 12px;
+	border-bottom: 1px solid #f3f3f3;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+#check_eval_staut {
+	align-self: center;
+}
