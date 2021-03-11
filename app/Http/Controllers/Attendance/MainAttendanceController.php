@@ -28,9 +28,27 @@ class MainAttendanceController extends Controller
 			$user_info_name = $user_info->user_name();
 			$title = $user_info_name . "님 출결 현황";
 
-			return view('Attend.Attend', compact('attend', 'title'));
+
+			$countAttendanceKinds = $this->CountAttendanceKinds($attend);
+
+			return view('Attend.Attend', compact('attend', 'title', 'countAttendanceKinds'));
 		} catch (Exception $e) {
 			view('errors.ErrorPage');
 		}
+	}
+
+	private function CountAttendanceKinds($attend)
+	{
+		$tardy = 0;
+		$absent = 0;
+		$earlyLeave = 0;
+		foreach ($attend as $item) {
+			if ($item['reason'] == '지각') $tardy++;
+			if ($item['reason'] == '결석') $absent++;
+			if ($item['reason'] == '조퇴') $earlyLeave++;
+		}
+
+
+		return array('tardy' => $tardy, 'absent' => $absent, 'earlyLeave' => $earlyLeave);
 	}
 }

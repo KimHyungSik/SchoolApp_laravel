@@ -60,10 +60,12 @@ $(this).scroll(function () {
 									<h5>
 										${result[i].title}
 									</h5>
-									<small>작성자 : ${result[i]["author"]}</small>
-									<small>작성일 : ${result_date}</small>
-									<small>좋아요 수 : ${result[i]["like_count"]}</small>
-									<small>조회수 : ${result[i]["readnum"]}</small>
+									<div class="write-day">
+										<span>${result[i]["author"]} </span>
+										<span>${result_date} </span>
+										<span><i class="far fa-thumbs-up"></i>${result[i]["like_count"]}</span>
+										<span>조회수 : ${result[i]["readnum"]}</span>
+									</div>
 								</a>
 							</li>
 						</div>`

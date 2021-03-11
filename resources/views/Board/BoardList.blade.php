@@ -19,16 +19,16 @@
 		<div class="title" role="banner">
 			<h1 style="margin-bottom: 0px" class="menu-title">
 				<span>KOREAIT 커뮤니티</span>
-				<a href="{{ route('Writing') }}">
-					<i class="fas fa-edit" style="font-size: 1rem"></i
+				<a class="write-button" href="{{ route('Writing') }}">
+					<i class="fas fa-edit" style="font-size: 17px"></i
 				></a>
-				<a
+				<a class="search-button"
 					href="#searchCollapse"
 					data-toggle="collapse"
 					role="button"
 					aria-expanded="false"
 					aria-controls="searchCollapse"
-					><i class="fas fa-search" style="font-size: 1rem"></i
+					><i class="fas fa-search" style="font-size: 17px"></i
 				></a>
 			</h1>
 			<nav>
@@ -175,7 +175,7 @@
 							><i class="far fa-thumbs-up"></i>
 							{{ $item["like_count"] }}</span
 						>
-						<span>조회 : {{ $item["readnum"] }}</span>
+						<span>조회수 : {{ $item["readnum"] }}</span>
 					</div>
 				</a>
 			</li>

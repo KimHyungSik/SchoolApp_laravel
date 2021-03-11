@@ -27,7 +27,6 @@ class WritingPage extends Controller
 				'board_content' => $request->content,
 				'board_is_notice' => $request->notice
 			);
-			$post_field_string = http_build_query($data);
 
 			$curl = new CurlController();
 			$response = $curl->curlPost($url_id, $data);

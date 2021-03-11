@@ -61,6 +61,9 @@ class BoardList extends Controller
 
 	function format_date($date_list)
 	{
+		if (count($date_list || $date_list == null) == 0) {
+			return;
+		}
 		$format_date_list = array();
 		$today = date("Y-m-d");
 		foreach ($date_list as $index => $date) {

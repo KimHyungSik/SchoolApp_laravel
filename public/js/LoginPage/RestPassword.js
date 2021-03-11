@@ -27,6 +27,7 @@ resetBtn.addEventListener('click', () => {
 		if(json.RESULT == 100){
 			$("#staticBackdrop_PW_Reset").modal("hide");
 			$("#resetSuccess").modal("show");
+			resetBtn.disabled = false;
 		}else{
 			resetStudentId.style.borderColor = "red";
 			resetSocialNumFrist.style.borderColor = "red";

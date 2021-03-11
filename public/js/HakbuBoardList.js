@@ -10,7 +10,7 @@ $(this).scroll(function () {
 			data: {
 				page_num: page,
 				page_size: "5",
-				board_group: major,
+				college: major,
 				searck_key: document.getElementById("title-content-search").value,
 				search_value: $("#search_text").val()
 			},
